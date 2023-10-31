@@ -9,6 +9,13 @@
 <body>
 <?php
     require 'partials/nav.php';
+    require '../controllers/dbconnectie.php';
+
+$query = "SELECT * FROM gebruikers";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$gebruikers = $stmt->fetchAll();
+
 ?>
 <main>
 <section class="grid-container">
@@ -28,7 +35,33 @@
     <article class="grid-item">
         <h3>Profielen</h3>
         <div>Zoekbalk</div>
-        <div>lijst</div>
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <td>Voornaam</td>
+                    <td>Achternaam</td>
+                    <td>School</td>
+                    <td>Werk</td>
+                </tr>
+                </thead>
+                <tbody>
+            <?php
+            foreach($gebruikers as $gebruiker){
+                echo "<tr>";
+                echo "<td>";
+                echo $gebruiker['voornaam'];
+                echo "</td>";
+                echo "<td>";
+                echo $gebruiker['achternaam'];
+                echo "</td>";
+                echo "</tr>";
+            }
+
+            ?>
+                </tbody>
+            </table>
+        </div>
     </article>
 
     </section>
@@ -40,17 +73,17 @@
 ?>
 </html>
 
-<script>
-    window.onscroll = function() {myFunction()};
-
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-
-    function myFunction() {
-        if (window.pageYOffset >= sticky) {
-            navbar.classList.add("sticky")
-        } else {
-            navbar.classList.remove("sticky");
-        }
-    }
-</script>
+<!--<script>-->
+<!--    window.onscroll = function() {myFunction()};-->
+<!---->
+<!--    var navbar = document.getElementById("navbar");-->
+<!--    var sticky = navbar.offsetTop;-->
+<!---->
+<!--    function myFunction() {-->
+<!--        if (window.pageYOffset >= sticky) {-->
+<!--            navbar.classList.add("sticky")-->
+<!--        } else {-->
+<!--            navbar.classList.remove("sticky");-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->

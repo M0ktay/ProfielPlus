@@ -20,3 +20,25 @@ body{
     height: auto;
     text-align: center;
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #EADBC8;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #EADBC8;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}

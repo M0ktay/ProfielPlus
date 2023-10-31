@@ -1,51 +1,141 @@
-
-<html>
+<?php
+?>
+<html lang="eng">
 <head>
-    <style>
+<style>
+    h2 {
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-        h1 {
-            font-family: Arial, Helvetica, sans-serif;
-        }
+    input[type="submit"] {
+        background-color: #DAC0A3;
+        border: 0;
+        border-radius: 3%;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
 
-        input[type="submit"] {
-            background-color: #DAC0A3;
-            border: 0;
-            border-radius: 3%;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
+    input[type="text"] {
+        background-color: white;
+        border: solid black 5px;
+        border: 0;
+        padding: 10px 10px;
+        border-radius: 3%;
+    }
 
-        #box {
-            background-color: #EADBC8;
-            padding: 50px;
-            width: 16%;
-            border-radius: 3%;
-            border: black solid 3px;
-            text-align: center;
-        }
+    input[type="date"] {
+        background-color: white;
+        border: solid black 5px;
+        border: 0;
+        padding: 10px 10px;
+        border-radius: 3%;
+    }
 
-        .footer{
-            position: fixed;
-            left: 0;
-            bottom: 0;
-        }
+    select{
+        background-color: white;
+        border: solid black 5px;
+        border: 0;
+        padding: 10px 10px;
+        border-radius: 3%;
+    }
 
-    </style>
+    #box {
+        background-color: #EADBC8;
+        padding: 50px;
+        width: 16%;
+        border-radius: 3%;
+        border: black solid 3px;
+        text-align: center;
+    }
+
+    .footer{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+    }
+</style>
 </head>
 <body>
 <?php
 require 'partials/nav.php';
 ?>
 <main>
-    <form method="post">
     <br/><br/><br/><br/>
-    <section id='box'>
-        <h1>Inloggen</h1>
-        <input type='text' placeholder="gebruikersnaam" name='gebruikersnaam'><br><br>
-        <input type='password' placeholder="wachtwoord" name="wachtwoord"><br><br>
-        <input type="submit" value="Inloggen" >
+    <section id="box">
+        <h2>School</h2>
+        <hr>
+        <form method="POST" href="../controllers/profielaanmaken.php">
+            <input type="hidden" name="id" value="id uit get">
+<!--            Als die er niet tussen staat moet er een toevoeg mogelijkheid komen-->
+        <select name="school" id="school">
+            <option value="" disabled selected>School</option>
+            <option value="Windesheim">Windesheim</option>
+            <option value="ICT Campus">ICT Campus</option>
+            <option value="ROC">ROC</option>
+        </select><br/><br/>
+            <!--            Als die er niet tussen staat moet er een toevoeg mogelijkheid komen-->
+<!--Misschien niveau een apparte tabel maken in de db of ergens anders dan bij scholen??-->
+            <select name="niveau" id="niveau">
+            <option value="" disabled selected>Niveau</option>
+            <option value="Mavo">Mavo</option>
+            <option value="Havo">Havo</option>
+            <option value="VWO">VWO</option>
+        </select><br/><br/>
+        <input type="text" name="diploma" placeholder="Diploma"><br/><br/>
+        <input type="text" name="startdatum" placeholder="Startdatum"
+        onfocus="(this.type='date')"> <br/><br/>
+        <input type="text" name="einddatum" placeholder="Einddatum"
+               onfocus="(this.type='date')"> <br/><br/>
+        <input type="submit" name="schoolSubmit" value="Toepassen">
+        </form>
     </section>
-    </form>
+
+    <section id="box">
+        <h1>Hobby's</h1>
+        <hr>
+        <form method="POST" href="../controllers/profielaanmaken.php">
+            <input type="hidden" name="id" value="id uit get">
+            <!--            Als die er niet tussen staat moet er een toevoeg mogelijkheid komen-->
+            <select name="hobby" id="hobby">
+                <option value="" disabled selected>Hobby</option>
+                <option value="Voetballen">Voetballen</option>
+                <option value="Schaken">Schaken</option>
+                <option value="Gamen">Gamen</option>
+            </select><br/><br/>
+            <input type="file" name="foto" placeholder="Foto"><br/><br/>
+            <input type="text" name="beschrijving" placeholder="Beschrijving" maxlength="100"><br/><br/>
+            <input type="submit" name="hobbySubmit" value="Toepassen">
+        </form>
+    </section>
+
+    <section id="box">
+        <h2>Werk</h2>
+        <hr>
+        <form method="POST" href="../controllers/profielaanmaken.php">
+            <input type="hidden" name="id" value="id uit get">
+            <!--            Als die er niet tussen staat moet er een toevoeg mogelijkheid komen-->
+            <select name="bedrijf" id="bedrijf">
+                <option value="" disabled selected>Bedrijf</option>
+                <option value="@AllArt">@AllArt</option>
+                <option value="ING">ING</option>
+                <option value="The Koole Company">The Koole Company</option>
+            </select><br/><br/>
+            <!--            Als die er niet tussen staat moet er een toevoeg mogelijkheid komen-->
+            <!--Misschien locatie een apparte tabel maken in de db of ergens anders dan bij bedrijf??-->
+            <select name="locatie" id="locatie">
+                <option value="" disabled selected>Locatie</option>
+                <option value="Naarden">Naarden</option>
+                <option value="Hilversum">Hilversum</option>
+                <option value="Nederhorst den Berg">Nederhorst den Berg</option>
+            </select><br/><br/>
+            <input type="text" name="functietitel" placeholder="Functietitel"><br/><br/>
+            <input type="text" name="startdatum" placeholder="Startdatum"
+                   onfocus="(this.type='date')"> <br/><br/>
+            <input type="text" name="startdatum" placeholder="Einddatum"
+                   onfocus="(this.type='date')"> <br/><br/>
+            <input type="submit" name="schoolSubmit" value="Toepassen">
+        </form>
+    </section>
 </main>
 <?php
 require 'partials/footer.php';
