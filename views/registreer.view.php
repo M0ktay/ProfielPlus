@@ -25,11 +25,10 @@
 
         
                 $_SESSION['message'] = array("text" => "Gebruiker aangemaakt", "alert" => "info");
-                // Redirect to another page
                 header("Location: ../index.php");
-                exit(); // Ensure that the script stops after redirection
+                exit(); 
             } catch (PDOException $e) {
-                echo $e->getMessage(); // Display the error
+                echo $e->getMessage(); 
             }
         } else {
             echo "<script>alert('Vul graag alle velden in')</script>";
