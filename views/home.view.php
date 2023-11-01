@@ -18,11 +18,12 @@ $gebruikers = $stmt->fetchAll();
 
 ?>
 <main>
+    <br/><br/><br/>
 <section class="grid-container">
 
     <article class="grid-item">
         <h3>Info ProfielPlus</h3>
-        <p>LLALLALLALALALALALALALLA Tekst en zo beetje type beetje tekst en this is spontainius in the engels bro WATAFAK</p>
+        <p>LLALLALLALALLALALALLA Tekst en zo beetje type beetje tekst en this is spontainius in the engels bro WATAFAK</p>
     </article>
     <article class="grid-item">
         <h3>Tekst</h3>
@@ -34,15 +35,14 @@ $gebruikers = $stmt->fetchAll();
 
     <article class="grid-item">
         <h3>Profielen</h3>
-        <div>Zoekbalk</div>
         <div>
-            <table>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Zoek op voornaam">
+            <br/><br/>
+            <table id="tabel">
                 <thead>
                 <tr>
                     <td>Voornaam</td>
                     <td>Achternaam</td>
-                    <td>School</td>
-                    <td>Werk</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -73,17 +73,23 @@ $gebruikers = $stmt->fetchAll();
 ?>
 </html>
 
-<!--<script>-->
-<!--    window.onscroll = function() {myFunction()};-->
-<!---->
-<!--    var navbar = document.getElementById("navbar");-->
-<!--    var sticky = navbar.offsetTop;-->
-<!---->
-<!--    function myFunction() {-->
-<!--        if (window.pageYOffset >= sticky) {-->
-<!--            navbar.classList.add("sticky")-->
-<!--        } else {-->
-<!--            navbar.classList.remove("sticky");-->
-<!--        }-->
-<!--    }-->
-<!--</script>-->
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tabel");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
