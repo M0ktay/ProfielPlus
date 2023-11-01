@@ -3,37 +3,28 @@
 
 session_start();
 
-require '..\controllers/dbconnectie.php';
+require '../controllers/dbconnectie.php';
 
-
-if (isset ($_POST["login"]))
-{
-    if(empty($_POST["gebruikersnaam"]) || empty($_POST["wachtwoord"]))
-{
-    $message = '<label> Alle velden zijn vereist</label>';
-}
-    else 
-    {
-        $query = "SELECT * FROM gebruikers WHERE gebruikersnaam = :gebruikersnaam AND wachtwoord = :wachtwoord";
+if (isset($_POST["login"])) {
+    if (empty($_POST["gebruikersnaam"]) || empty($_POST["wachtwoord"])) {
+        $message = '<label> Alle velden zijn vereist</label>';
+    } else {
+        $query = "SELECT id FROM gebruikers WHERE gebruikersnaam = :gebruikersnaam AND wachtwoord = :wachtwoord";
         $stmt = $conn->prepare($query);
         $stmt->execute(
             array(
                 'gebruikersnaam' => $_POST["gebruikersnaam"],
                 'wachtwoord' => hash('sha256', $_POST["wachtwoord"])
-
             )
-          );
-          $count = $stmt->rowCount();
-          if($count > 0)
-          {
-            $_SESSION['gebruikersnaam'] = $_POST['gebruikersnaam'];
-            // header("location:../index.php");
-            header('location:../index.php');
-          }
-          else 
-          {
-            $message ='<label>FOUT</label>';
-          }
+        );
+
+        $user = $stmt->fetch(); 
+        if ($user) {
+            $_SESSION['gebruiker_id'] = $user['id']; 
+            header('location:../index.php'); 
+        } else {
+            $message = '<label>FOUT</label>';
+        }
     }
 }
 
@@ -103,6 +94,10 @@ if (isset ($_POST["login"]))
 <body>
 <?php
  require 'partials/nav.php';
+
+ if($_POST){
+    var_dump($_SESSION);
+ }
 ?>
 <main>
     <form method="post">

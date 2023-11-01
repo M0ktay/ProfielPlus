@@ -1,6 +1,10 @@
 <?php
+session_start();
+var_dump($_SESSION);
 ?>
 <html lang="eng">
+
+
 
 <head>
     <title>ProfielPlus</title>
@@ -23,6 +27,7 @@ $gebruikers = $stmt->fetchAll();
     <article class="grid-item">
         <h3>Info ProfielPlus</h3>
         <p>LLALLALLALALALALALALALLA Tekst en zo beetje type beetje tekst en this is spontainius in the engels bro WATAFAK</p>
+        <a href="../controllers/uitloggen.php">Uitloggen</a>
     </article>
     <article class="grid-item">
         <h3>Tekst</h3>
