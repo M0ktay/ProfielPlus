@@ -2,6 +2,8 @@
     session_start();
     require '../controllers/dbconnectie.php';
 
+    
+
     if(isset($_POST['registreren'])){
         if($_POST['voornaam'] != "" || $_POST['achternaam'] != "" || $_POST['email'] != "" || $_POST['gebruikersnaam'] != "" || $_POST['wachtwoord'] != "" ){
             try{
@@ -12,7 +14,7 @@
                 $wachtwoord = hash('sha256', $_POST['wachtwoord']);
                 $beheerder = isset($_POST['is_beheerder']) ? 1 : 0;
 
-                $stmt = $conn->prepare("INSERT INTO `profileapp`.`gebruikers` (`voornaam`, `achternaam`, `wachtwoord`, `email`, `gebruikersnaam`, `beheerder`) VALUES (?, ?, ?, ?, ?, ?);");
+                $stmt = $conn->prepare("INSERT INTO `profielapp`.`gebruikers` (`voornaam`, `achternaam`, `wachtwoord`, `email`, `gebruikersnaam`, `beheerder`, `aangemaakt_op`) VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP);");
                 $stmt->bindValue(1, $voornaam);
                 $stmt->bindValue(2, $achternaam);
                 $stmt->bindValue(3, $wachtwoord);
@@ -22,24 +24,32 @@
                 $stmt->execute();
 
         
-               
-
-                // $sql = ("INSERT INTO gebruikers (voornaam, achternaam, email, gebruikersnaam, wachtwoord) VALUES (?,?,?,?,?);");  
-                $conn->exec($stmt);
-                }catch(PDOException $e) {
-                    echo $e->getMessage();
-                }
-                $_SESSION['message']=array("text"=>"Gebruiker aangemaakt", "alert" => "info");
-                $conn = null;
-                // header("location:../index.php");
+                $_SESSION['message'] = array("text" => "Gebruiker aangemaakt", "alert" => "info");
+                header("Location: ../index.php");
+                exit(); 
+            } catch (PDOException $e) {
+                echo $e->getMessage(); 
+            }
         } else {
             echo "<script>alert('Vul graag alle velden in')</script>";
         }
+        
     }
 
+    if(isset($_SESSION['user_id'])) {
+        $user_id = $_SESSION['user_id'];
+    
+        $stmt = $conn->prepare("SELECT beheerder FROM gebruikers WHERE beheerder = ?"); 
+        $stmt->bindValue(1, $user_id);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
+        $is_admin = ($result && $result['beheerder'] == 1);
+    } else {
+        $is_admin = false; 
+    }
 ?>
+
 <html>
 <head>
     <style>
@@ -127,9 +137,11 @@
         <input type='email' placeholder="email" name="email"><br><br>
         <input type='text' placeholder="gebruikersnaam" name="gebruikersnaam"><br><br>
         <input type='password' placeholder="wachtwoord" name="wachtwoord"><br><br>
-        <label id="checkboxText">Is beheerder?</label>
-        <input type='checkbox' name="is_beheerder"> <br><br>
-        <!-- Dit hoord alleen een beheerder te kunnen zien -->
+        
+        <?php if($is_admin) { ?>
+            <label id="checkboxText">Is beheerder?</label>
+            <input type='checkbox' name="is_beheerder"> <br><br>
+        <?php } ?>
         <input type="submit" name="registreren" value="Registreren" >
     </section>
     </form>

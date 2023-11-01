@@ -1,2 +1,2 @@
 <?php
-require 'C:\Users\Gebruiker\Desktop\Schoolmap\ProfielPlus\views\home.view.php';
+require '../views/home.view.php';
