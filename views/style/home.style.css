@@ -71,3 +71,9 @@ tr:nth-child(even) {
     left: 0;
     bottom: 0;
 }
+.Hometext{
+    font-size: 20px;
+}
+.Hometitel{
+    font-size: 36px;
+}
