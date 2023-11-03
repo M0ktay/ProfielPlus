@@ -1,4 +1,5 @@
 <?php
+// Hier word de session gestart
 session_start();
 
 ?>
@@ -10,9 +11,11 @@ session_start();
 </head>
 <body>
 <?php
+//hier word de navbar en de footer opgeroepen
     require 'partials/nav.php';
     require '../controllers/dbconnectie.php';
 
+    // Hier word alles uit de database gehaald van de tabel gebruikers
 $query = "SELECT * FROM gebruikers";
 $stmt = $conn->prepare($query);
 $stmt->execute();
@@ -51,7 +54,7 @@ $gebruikers = $stmt->fetchAll();
             foreach($gebruikers as $gebruiker){
                 echo "<tr>";
                 echo "<td>";
-                echo $gebruiker['voornaam'];
+                echo '<a href="../controllers/profiel.php">' . $gebruiker['voornaam'] . '</a>';
                 echo "</td>";
                 echo "<td>";
                 echo $gebruiker['achternaam'];
