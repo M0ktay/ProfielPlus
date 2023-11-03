@@ -8,6 +8,15 @@ session_start();
     h2 {
         font-family: Arial, Helvetica, sans-serif;
     }
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        padding: 30px;
+        gap: 20px;
+        margin-top: 5%;
+        justify-content: center;
+        justify-items: center;
+    }
 
     input[type="submit"] {
         background-color: #DAC0A3;
@@ -51,7 +60,7 @@ session_start();
     #box {
         background-color: #EADBC8;
         padding: 50px;
-        width: 16%;
+        width: 300px;
         border-radius: 3%;
         border: black solid 3px;
         text-align: center;
@@ -61,6 +70,13 @@ session_start();
         position: fixed;
         left: 0;
         bottom: 0;
+    }
+    @media(max-width: 885px){
+        .grid-container{
+            display: inline-block;
+            margin-top: 50px;
+        }
+
     }
 </style>
 </head>
@@ -168,7 +184,7 @@ VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
 
 ?>
 <main>
-    <br/><br/><br/><br/>
+    <article class="grid-container">
     <section id="box">
         <h2>School</h2>
         <hr>
@@ -304,6 +320,7 @@ VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
             <input type="submit" name="vakSubmit" value="Toepassen">
         </form>
     </section>
+    </article>
 </main>
 <?php
 //hier word de footer toegevoegd
