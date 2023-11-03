@@ -1,5 +1,6 @@
 <?php
-include 'database.php';
+
+require 'C:\Users\Meriç\Desktop\School\ProfielPlus\controllers\dbconnectie.php';
 
 $query = "SELECT * FROM gebruikers where id = 1";
 $stmt = $conn->prepare($query);
@@ -7,22 +8,41 @@ $stmt->execute();
 $gebruikers = $stmt->fetchAll();
 //die(var_dump($gebruikers));
 
-$query = "SELECT * FROM gebruiker_heeft_hobby WHERE gebruikers_id = 1";
+$query = "select hobby.*, gebruiker_heeft_hobby.*
+from hobby
+join gebruiker_heeft_hobby
+on hobby.id = gebruiker_heeft_hobby.gebruikers_id WHERE gebruikers_id = 1";
 $stmt = $conn->prepare($query);
 $stmt->execute();
 $gebruikersHobby = $stmt->fetchAll();
 //die(var_dump($gebruikersHobby));
 
-$query = "SELECT * FROM hobby WHERE id = 1";
+
+$query = "SELECT scholen.*, gebruiker_heeft_scholen.*, niveau.id, niveau.naam AS niveauNaam
+FROM scholen
+JOIN gebruiker_heeft_scholen ON scholen.id = gebruiker_heeft_scholen.scholen_id
+JOIN niveau ON gebruiker_heeft_scholen.niveau_id = niveau.id
+WHERE gebruikers_id = 1;";
 $stmt = $conn->prepare($query);
 $stmt->execute();
-$Hobbys = $stmt->fetchAll();
-//die(var_dump($Hobbys));
+$scholen = $stmt->fetchAll();
+//die(var_dump($scholen));
+
+$query = "select gebruikers.*, gebruiker_heeft_bedrijf.*, bedrijf.id, bedrijf.naam as bedrijfNaam
+from bedrijf
+join gebruiker_heeft_bedrijf
+on bedrijf.id = gebruiker_heeft_bedrijf.bedrijf_id
+join gebruikers on gebruikers.id = gebruiker_heeft_bedrijf.gebruikers_id
+WHERE gebruikers_id = 1;";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$bedrijven = $stmt->fetchAll();
+//die(var_dump($bedrijven));
 ?>
 
 <html>
 <head>
-    <link rel="stylesheet" href="profiel.style.css">
+    <link rel="stylesheet" href="./style/profiel.style.css">
 </head>
 <body>
 <main>
@@ -33,75 +53,68 @@ $Hobbys = $stmt->fetchAll();
             <article class="Persoonsgegevens">
                 <div class="tag">Gebruikersnaam:</div><div class="gegevens">
                     <?php
-                        echo $gebruikers['gebruikersnaam'];
-                    ?></div>
-                <hr class="hrBlue">
-                <div class="tag">Voornaam:</div><div class="gegevens"></div>
-                <hr class="hrBlue">
-                <div class="tag">Achternaam:</div><div class="gegevens">Oktay</div>
-                <hr class="hrBlue">
-                <div class="tag">Email:</div><div class="gegevens">meric@live.nl</div>
-                <hr class="hrBlue">
+                    foreach ($gebruikers as $gebruiker){
+                        echo $gebruiker['gebruikersnaam'];
+                        echo "<hr class='hrBlue'>" . "<div class='tag'>Voornaam:</div><div class='gegevens'>" . $gebruiker['voornaam'] . "</div>" . "<hr class='hrBlue'>";
+                        echo "<div class='tag'>Achternaam:</div><div class='gegevens'>" . $gebruiker['achternaam'] . "</div>" . "<hr class='hrBlue'>";
+                        echo "<div class='tag'>Email:</div><div class='gegevens'>" . $gebruiker['email'] . "</div>" . "<hr class='hrBlue'>";
+                    }
+                    ?>
+                </div>
             </article>
             <article class="schoolPrestaties">
                 <div class="Huidige">Huidige
-                    <div class="tag">Schoolnaam:</div><div class="gegevens">ICT Campus</div>
-                    <hr class="hrBlue">
-                    <div class="tag">Niveau:</div><div class="gegevens">MBO niveau 4</div>
-                    <hr class="hrBlue">
+                        <?php
+                            foreach ($scholen as $school){
+                                if (empty($school['eindDatum'])) {
+                                    echo "<div class='tag'>Schoolnaam:</div><div class='gegevens' >" . $school['naam'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Niveau:</div><div class='gegevens'>" . $school['niveauNaam'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Startdatum:</div><div class='gegevens' >" . $school['startDatum'] . "</div>" . "<hr class='hrBlue'>";
+                                }
+                            }
+                        ?>
+                </div>
                     <!--link naar pagina met alle vakken en cijfers-->
                     <a href="#">vakken</a>
-                </div>
                 <div class="Afgerond">Afgerond
-                    <div class="tag">Schoolnaam:</div><div class="gegevens">ICT Campus</div>
-                    <hr class="hrBlue">
-                    <div class="tag">Diploma's:</div><div class="gegevens">MBO diploma, Mavo diploma</div>
-                    <hr class="hrBlue">
+                        <?php
+                            foreach ($scholen as $school) {
+                                if (!empty($school['eindDatum'])) {
+                                    echo "<div class='tag'>Schoolnaam:</div><div class='gegevens'>" . $school['naam'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Diploma's:</div><div class='gegevens'>" . $school['diploma'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Startdatum:</div><div class='gegevens' >" . $school['startDatum'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Einddatum:</div><div class='gegevens' >" . $school['eindDatum'] . "</div>" . "<hr class='hrBlue'>";
+                                }
+                        }
+                        ?>
                 </div>
             </article>
             <article class="hobbys"><b>Hobby's</b>
                 <div class="hobbyWrap">
-                    <div class="hobby"><?php echo $Hobbys["naam"]; ?></div><div class="beschrijving">
-
-                        <?php
-                        foreach ($gebruikersHobby as $gebruikerhobby) {
-                            echo $gebruikerhobby["beschrijving"] . "<img class='hobbyImg' src='hobby_temp_img.jpg'>" . "<hr class='hrBlue'>" ."<br>";
-                        }
-                        ?></div>
-                </div>
+                    <?php
+                    foreach ($gebruikersHobby as $hobby){
+                        echo "<div class='hobby'>" . $hobby['naam'] . "</div>" . "<div class='beschrijving'>" . $hobby['beschrijving'] . "<img class='hobbyImg' src='hobby_temp_img.jpg'>" . "</div>" . "<hr class='hrBlue'>";
+                    }
+                    ?>
             </article>
                 <article class="werkErvaring">
                     <div class="Huidige">Huidig Werk
-                        <div class="tag">Werkplaats:</div><div class="gegevens">Albert Heijn</div>
-                        <hr class="hrBlue">
-                        <div class="tag">Functietitel:</div><div class="gegevens">Vakkenvuller</div>
-                        <hr class="hrBlue">
-                        <div class="tag">StartDatum:</div><div class="gegevens">18-11-2018</div>
-                        <hr class="hrBlue">
+                    <?php
+                    foreach ($bedrijven as $bedrijf) {
+                        if (empty($bedrijf['eindDatum'])) {
+                            echo "<div class='tag'>Werkplaats:</div>" . $bedrijf['bedrijfNaam'] . "<hr class='hrBlue'>" . "<div class='tag'>Functietitel:</div>" . $bedrijf['functieTitel'] . "<hr class='hrBlue'>" . "<div class='tag'>StartDatum:</div>" . $bedrijf['startDatum'] . "<hr class='hrBlue'>";
+                        }
+                    }
+                    ?>
                     </div>
                     <div class="Gestopt">Gestopt Werk
-                        <div class="tag">Werkplaats:</div><div class="gegevens">Albert Heijn</div>
-                        <hr class="hrBlue">
-                        <div class="tag">Functietitel:</div><div class="gegevens">Vakkenvuller</div>
-                        <hr class="hrBlue">
-                        <div class="tag">StartDatum:</div><div class="gegevens">18-11-2018</div>
-                        <hr class="hrBlue">
-                        <div class="tag">EindDatum:</div><div class="gegevens">18-11-2023</div>
-                        <hr class="hrBlue">
-                        <div class="tag">Werkplaats:</div><div class="gegevens">Albert Heijn</div>
-                        <hr class="hrBlue">
-                        <div class="tag">Functietitel:</div><div class="gegevens">Vakkenvuller</div>
-                        <hr class="hrBlue">
-                        <div class="tag">StartDatum:</div><div class="gegevens">18-11-2018</div>
-                        <hr class="hrBlue">
-                        <div class="tag">EindDatum:</div><div class="gegevens">18-11-2023</div>
-                        <hr class="hrBlue">
+                        <?php
+                        foreach ($bedrijven as $bedrijf) {
+                            if (!empty($bedrijf['eindDatum'])) {
+                                echo "<div class='tag'>Werkplaats:</div>" . $bedrijf['bedrijfNaam'] . "<hr class='hrBlue'>" . "<div class='tag'>Functietitel:</div>" . $bedrijf['functieTitel'] . "<hr class='hrBlue'>" . "<div class='tag'>StartDatum:</div>" . $bedrijf['startDatum'] . "<hr class='hrBlue'>" . "<div class='tag'>EindDatum</div>" . $bedrijf['eindDatum'] . "<hr class='hrBlue'>";
+                            }
+                        }
+                        ?>
                     </div>
                 </article>
     </section>
 </main>
 </body>
 <footer>
-
 </footer>
 </html>
