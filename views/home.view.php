@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 ?>
 <html lang="eng">
 
@@ -22,12 +24,11 @@ $gebruikers = $stmt->fetchAll();
 <section class="grid-container">
 
     <article class="grid-item">
-        <h3>Info ProfielPlus</h3>
-        <p>LLALLALLALALLALALALLA Tekst en zo beetje type beetje tekst en this is spontainius in the engels bro WATAFAK</p>
+        <h3>Welkom bij ProfielPlus</h3>
+        <p>Word lid van onze gemeenschap en deel je portfolio om te verbinden, te inspireren en nieuwe mogelijkheden te ontdekken. Samen bouwen we aan een plek waar talent wordt erkend en gewaardeerd.</p>
     </article>
     <article class="grid-item">
-        <h3>Tekst</h3>
-        <p>Nog meer tekst</p>
+        <img class="pfLogo" src="../views/partials/pf_logo.png">
     </article>
 </section>
 

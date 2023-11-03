@@ -1,8 +1,11 @@
-<?php
-?>
+
 <html lang="eng">
 <head>
     <style>
+        body{
+    background-color: #F8F0E5;
+}
+
         #navbar {
             overflow: hidden;
             background-color: #0F2C59;
@@ -12,7 +15,7 @@
             top: 0;
 
         }
-
+ 
         #navbar a {
             float: left;
             display: block;
@@ -53,13 +56,17 @@
 <header>
     <nav id="navbar">
         <a class="active" href="../controllers/home.php"><img src="../views/partials/pf_logo.png" class="logo"></a>
-<!--        alleen als je bent ingelogd-->
-        <a href="../controllers/profiel.php">Profiel</a>
-        <!--        Als je nog niks van je profiel heb ingevuld (school,werk of hobbys) dan moet dit er staan, anders niet-->
-        <a href="../controllers/profielaanmaken.php">Profiel aanmaken</a>
-<!--        Als je niet bent ingelogd = inloggen/registreren, als je bent ingelogd = uitloggen-->
-        <a href="../controllers/inloggen.php">Uitloggen/Inloggen/Registreren</a>
 
+        <?php if (isset($_SESSION['gebruiker_id'])) { ?>
+            <a href="../controllers/profiel.php">Profiel</a>
+            <a href="../controllers/profielaanmaken.php">Profiel aanmaken</a>
+            <?php  ?>
+            <a href="../controllers/uitloggen.php">Uitloggen</a>
+        <?php } else { ?>
+          
+            <a href="../controllers/inloggen.php">Inloggen</a>
+            <a href="../controllers/registreer.php">Registreren</a>
+        <?php } ?>
     </nav>
 </header>
 </html>

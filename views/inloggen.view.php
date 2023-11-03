@@ -1,4 +1,3 @@
-<!-- Er moet nog een Footer en een Navbar in komen -->
 <?php
 
 session_start();
