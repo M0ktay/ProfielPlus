@@ -101,8 +101,7 @@ $vakken = $stmt->fetchAll();
 if(isset($_SESSION['gebruiker_id'])){
     $gebruikers_id = $_SESSION['gebruiker_id'];
 }else {
-    $gebruikers_id = 1;
-//    header("location: ../controllers/inloggen.php");
+    header("location: ../controllers/inloggen.php");
 }
 
 if(isset($_POST["schoolSubmit"])) {
