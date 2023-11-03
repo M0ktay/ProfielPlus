@@ -54,7 +54,7 @@ $gebruikers = $stmt->fetchAll();
             foreach($gebruikers as $gebruiker){
                 echo "<tr>";
                 echo "<td>";
-                echo '<a href="../controllers/profiel.php">' . $gebruiker['voornaam'] . '</a>';
+                echo '<a href="../controllers/profiel.php?id=' . $gebruiker[0] . '">' . $gebruiker['voornaam'] . '</a>';
                 echo "</td>";
                 echo "<td>";
                 echo $gebruiker['achternaam'];
