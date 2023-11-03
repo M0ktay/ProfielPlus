@@ -268,7 +268,7 @@ VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
             <br/>
             <a href="selecttoevoegen.php?toevoegen=Vak">Vak toevoegen</a>
             <br/><br/>
-            <input name="cijfer" type="number" step="0.01" inputmode="numeric"><br/><br/>
+            <input name="cijfer" type="number" step="0.01" inputmode="numeric" placeholder="Cijfer" required><br/><br/>
             <input type="submit" name="vakSubmit" value="Toepassen">
         </form>
     </section>
