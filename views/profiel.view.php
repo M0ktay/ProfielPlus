@@ -105,14 +105,33 @@ $vakken = $stmt->fetchAll();
             <article class="schoolPrestaties">
                 <div class="Huidige">Huidige
                 <hr class='hrBlue'>
-                        <?php
-                            //hier word de for each gebruikt om de school te laten zien op het scherm
-                            foreach ($scholen as $school){
-                                if (empty($school['eindDatum'])) {
-                                    echo "<div class='tag'>Schoolnaam:</div><div class='gegevens' >" . $school['naam'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Niveau:</div><div class='gegevens'>" . $school['niveauNaam'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Startdatum:</div><div class='gegevens' >" . $school['startDatum'] . "</div>" . "<div class='edit-container'><?php if($user_id == $user_id){?><a href='../controllers/profielbeheer.php?id=$school[2]&edit=school' class='edit'>Edit</a></div><?php}?>" . "<hr class='hrBlue'>";
-                                }
-                            }
-                        ?>
+                <?php
+        $counter = 0; 
+
+        foreach ($scholen as $school) {
+            //hier word gekeken of de eindatum al geweest is
+            if (empty($school['eindDatum']) || strtotime($school['eindDatum']) > time()) {
+                $counter++;
+                echo "<div class='HuidigDivje' >"; 
+                echo "<div class='tag'>Schoolnaam:</div>" . $school['naam'] . "<hr class='hrBlue'>";
+                echo "<div class='tag'>Diploma's</div>" . $school['diploma'] . "<hr class='hrBlue'>";
+                echo "<div class='tag'>StartDatum:</div>" . $school['startDatum'] . "<hr class='hrBlue'>";
+                echo "<div class='tag'>EindDatum:</div>" . $school['eindDatum'];
+
+             
+                if ($user_id == $user_id) {
+                    echo "<a href='../controllers/profielbeheer.php?id=$school[8]&edit=school' class='edit'>Edit</a>";
+                }
+
+                echo "</div>";
+
+                //10 is nu limiet aantal werk
+                if ($counter >= 10) {
+                    break;
+                }
+            }
+        }
+        ?>
                 </div>
                     <!--Popup met alle vakken en cijfers-->
                     <button id="myButton" class="lijst">Vakkenlijst</button>
@@ -144,24 +163,43 @@ $vakken = $stmt->fetchAll();
                             </button>
                         </div>
                     </div>
-                <div class="Afgerond">Afgerond
+                    <div class="Afgerond" >Afgerond
                 <hr class='hrBlue'>
-                        <?php
-                         //hier word de for each gebruikt om de scholen te laten zien op het scherm
-                            foreach ($scholen as $school) {
-                                if (!empty($school['eindDatum'])) {
-                                    echo "<div class='tag'>Schoolnaam:</div><div class='gegevens'>" . $school['naam'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Diploma's:</div><div class='gegevens'>" . $school['diploma'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Startdatum:</div><div class='gegevens' >" . $school['startDatum'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Einddatum:</div><div class='gegevens' >" . $school['eindDatum'] . "</div>" . "<?php if($user_id == $user_id){?><a href='../controllers/profielbeheer.php?id=$school[2]&edit=school' class='edit'>Edit</a></div><?php}?>";
-                                }
-                        }
-                        ?>
-                </div>
+                <?php
+        $counter = 0; 
+
+        foreach ($scholen as $school) {
+             //hier word gekeken of de eindatum al geweest is
+            if (empty($school['eindDatum']) || strtotime($school['eindDatum']) < time()) {
+                $counter++;
+                echo "<div class='AfgerondDivje' >"; 
+                echo "<div class='tag'>Schoolnaam:</div>" . $school['naam'] . "<hr class='hrBlue'>";
+                echo "<div class='tag'>Diploma's</div>" . $school['diploma'] . "<hr class='hrBlue'>";
+                echo "<div class='tag'>StartDatum:</div>" . $school['startDatum'] . "<hr class='hrBlue'>";
+                echo "<div class='tag'>EindDatum:</div>" . $school['eindDatum'];
+
+       
+                if ($user_id == $user_id) {
+                    echo "<a href='../controllers/profielbeheer.php?id=$school[8]&edit=school' class='edit'>Edit</a>";
+                }
+
+                echo "</div>";
+
+              //10 is nu limiet aantal werk
+                if ($counter >= 10) {
+                    break;
+                }
+            }
+        }
+        ?>
+                </div> 
             </article>
             <article class="hobbys"><b>Hobby's</b>
                 <div class="hobbyWrap">
                     <?php
                      //hier word de for each gebruikt om de hobby's te laten zien op het scherm
                     foreach ($gebruikersHobby as $hobby){
-                        echo "<hr class='hrBlue'><div class='hobby'>" . $hobby['hobby_naam'] . "</div><div class='beschrijving'>" . $hobby['beschrijving'] . "</div>" . "<hr class='hrBlue'>";
+                        echo "<hr class='hrBlue'><div class='hobby'>" . $hobby['hobby_naam'] . "</div><div class='beschrijving'>" . $hobby['beschrijving'] . "</div>";
                         
                     }
                     ?>
@@ -170,24 +208,60 @@ $vakken = $stmt->fetchAll();
                     <div class="Huidige">Huidig Werk
                     <hr class='hrBlue'>
                     <?php
-                     //hier word de for each gebruikt om de bedrijven te laten zien op het scherm
-                    foreach ($bedrijven as $bedrijf) {
-                        if (empty($bedrijf['eindDatum'])) {
-                            echo "<div class='tag'>Werkplaats:</div>" . $bedrijf['bedrijfNaam'] . "<hr class='hrBlue'>" . "<div class='tag'>Functietitel:</div>" . $bedrijf['functieTitel'] . "<hr class='hrBlue'>" . "<div class='tag'>StartDatum:</div>" . $bedrijf['startDatum'] .  "<?php if($user_id == $user_id){?><a href='../controllers/profielbeheer.php?id=$bedrijf[8]&edit=bedrijf' class='edit'>Edit</a></div><?php}?>" . "<hr class='hrBlue'>";
-                        }
-                    }
+        $counter = 0; 
+
+        foreach ($bedrijven as $bedrijf) {
+             //hier word gekeken of de eindatum al geweest is
+            if (empty($bedrijf['eindDatum']) || strtotime($bedrijf['eindDatum']) > time()) {
+                echo "<div class='HuidigDivje'>"; 
+                echo "<div class='tag'>Werkplaats:</div><div class='gegevens' >" . $bedrijf['bedrijfNaam'] . "</div><hr class='hrBlue'>";
+                echo "<div class='tag'>Functietitel:</div>" . $bedrijf['functieTitel'] . "<hr class='hrBlue'>";
+                echo "<div class='tag'>StartDatum:</div>" . $bedrijf['startDatum'] . "<hr class='hrBlue'>";
+                echo "<div class='tag'>EindDatum:</div>" . $bedrijf['eindDatum'];
+
+                if ($user_id == $user_id) {
+                    echo "<a href='../controllers/profielbeheer.php?id=$bedrijf[8]&edit=bedrijf' class='edit'>Edit</a>";
+                }
+
+                echo "</div>";
+
+                //10 is nu limiet aantal werk
+                if ($counter >= 10) {
+                    break;
+                }
+                
+            }
+        }
                     ?>
                     </div>
+                    
                     <div class="Gestopt">Gestopt Werk
                     <hr class='hrBlue'>
-                        <?php
-                         //hier word de for each gebruikt om de bedrijven te laten zien op het scherm
-                        foreach ($bedrijven as $bedrijf) {
-                            if (!empty($bedrijf['eindDatum'])) {
-                                echo "<div class='tag'>Werkplaats:</div>" . $bedrijf['bedrijfNaam'] . "<hr class='hrBlue'>" . "<div class='tag'>Functietitel:</div>" . $bedrijf['functieTitel'] . "<hr class='hrBlue'>" . "<div class='tag'>StartDatum:</div>" . $bedrijf['startDatum'] . "<hr class='hrBlue'>" . "<div class='tag'>EindDatum</div>" . $bedrijf['eindDatum'] .  "<?php if($user_id == $user_id){?><a href='../controllers/profielbeheer.php?id=$bedrijf[8]&edit=bedrijf' class='edit'>Edit</a></div><?php}?>" ;
-                            }
-                        }
-                        ?>
+                    <?php
+        $counter = 0; // Initialize a counter
+
+        foreach ($bedrijven as $bedrijf) {
+             //hier word gekeken of de eindatum al geweest is
+            if (empty($bedrijf['eindDatum']) || strtotime($bedrijf['eindDatum']) < time()) {
+                $counter++;
+                echo "<div class='GestoptDivje'>"; // Adjust styles as needed
+                echo "<div class='tag'>Werkplaats:</div>" . $bedrijf['bedrijfNaam'] . "<hr class='hrBlue'>";
+                echo "<div class='tag'>Functietitel:</div>" . $bedrijf['functieTitel'] . "<hr class='hrBlue'>";
+                echo "<div class='tag'>StartDatum:</div>" . $bedrijf['startDatum'] . "<hr class='hrBlue'>";
+                echo "<div class='tag'>EindDatum:</div>" . $bedrijf['eindDatum'];
+
+                if ($user_id == $user_id) {
+                    echo "<a href='../controllers/profielbeheer.php?id=$bedrijf[8]&edit=bedrijf' class='edit'>Edit</a>";
+                }
+
+                echo "</div>";
+
+                if ($counter >= 10) {
+                    break;
+                }
+            }
+        }
+        ?>
                     </div>
                 </article>
     </section>

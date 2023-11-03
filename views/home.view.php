@@ -7,7 +7,7 @@ session_start();
 
 <head>
     <title>ProfielPlus</title>
-    <link rel="stylesheet" href="/views/style/home.style.css">
+    <link rel="stylesheet" href="../views/style/home.style.css">
 </head>
 <body>
 <?php

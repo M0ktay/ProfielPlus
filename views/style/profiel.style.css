@@ -75,17 +75,58 @@ box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .Huidige{
 width: 50%;
-height: auto;
-text-align: center;
+height: 314px;
+font-weight:bold;
+overflow-y: auto;
+}
+.HuidigeDivje{
+    width: 50%;
+    height: 314px;
+    font-weight:bold;
+    overflow-y: hidden;
+    margin-bottom: 20px; 
+    padding: 10px;
+     border: 1px solid #ccc; 
+     width: 100%; 
+     box-sizing: border-box;
+
 }
 .hrBlue{
     border: 1px solid #0F2C59;
 
 }
 .Afgerond{
-width: 50%;
-height: auto;
+    width: 50%;
+    height: 314px;
+    font-weight:bold;
+    overflow-y: auto;
+
 }
+
+.AfgerondDivje{
+    width: 50%;
+    height: 314px;
+    font-weight:bold;
+    overflow-y: hidden;
+    margin-bottom: 20px; 
+    padding: 10px;
+     border: 1px solid #ccc; 
+     width: 100%; 
+     box-sizing: border-box;
+}
+
+.HuidigDivje{
+    width: 50%;
+    height: 314px;
+    font-weight:bold;
+    overflow-y: hidden;
+    margin-bottom: 20px; 
+    padding: 10px;
+     border: 1px solid #ccc; 
+     width: 100%; 
+     box-sizing: border-box;
+}
+
 .hobbys{
 border: 1px solid #0F2C59;
 border-radius: 33px;
@@ -122,13 +163,29 @@ flex-direction: row;
 overflow-y: scroll;
 max-height: 386px;
 box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: #EADBC8;
-    color: #0F2C59;
+background-color: #EADBC8;
+color: #0F2C59;
 }
 .Gestopt{
 width: 50%;
-height: auto;
+height: 314px;
+font-weight:bold;
+overflow-y: auto;
 }
+
+.GestoptDivje{
+width: 50%;
+height: auto;
+font-weight:bold;
+overflow-y: auto;
+margin-bottom: 20px; 
+padding: 10px; 
+border: 1px solid #ccc; 
+width: 100%; 
+box-sizing: border-box;
+    }
+
+
 .beschrijving {
 max-width: 451px;
 }

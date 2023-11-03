@@ -1,6 +1,4 @@
-body{
-    background-color: #F8F0E5;
-}
+
 
 p {
     font-family: Arial, Helvetica, sans-serif;
@@ -70,10 +68,4 @@ tr:nth-child(even) {
     position: fixed;
     left: 0;
     bottom: 0;
-}
-.Hometext{
-    font-size: 20px;
-}
-.Hometitel{
-    font-size: 36px;
 }

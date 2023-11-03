@@ -26,6 +26,14 @@ input[type="password"] {
     border-radius: 3%;
 }
 
+input[type="email"] {
+    background-color: white;
+    border: solid black 5px;
+    border: 0;
+    padding: 10px 10px;
+    border-radius: 3%;
+}
+
 #container {
     display: flex;
     justify-content: center;
