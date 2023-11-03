@@ -1,6 +1,23 @@
 body{
     background-color: #F8F0E5;
 }
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="text"] {
+    background-color: white;
+    border: solid black 5px;
+    border: 0;
+    padding: 10px 10px;
+    border-radius: 3%;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: auto auto;
@@ -15,10 +32,15 @@ body{
     max-height: 400px;
 }
 .grid-item {
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     height: auto;
     text-align: center;
+    border-radius: 3px;
+}
+
+.pfLogo {
+    width: 50%;
 }
 
 table {
