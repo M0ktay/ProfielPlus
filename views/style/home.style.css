@@ -1,0 +1,71 @@
+
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    text-decoration: none;
+}
+
+
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="text"] {
+    background-color: white;
+    border: solid black 5px;
+    border: 0;
+    padding: 10px 10px;
+    border-radius: 3%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 30px;
+    gap: 20px;
+}
+.grid-container-groot{
+    display: grid;
+    grid-template-columns: auto;
+    padding: 30px;
+    gap: 20px;
+    max-height: 400px;
+}
+.grid-item {
+    border: 2px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    height: auto;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.pfLogo {
+    width: 50%;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #EADBC8;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #EADBC8;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
