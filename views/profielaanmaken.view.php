@@ -117,7 +117,8 @@ VALUES('$gebruikers_id','$schoolnaam', '$niveauschool', '$diploma', '$startDatum
     $stmt = $conn->prepare($query);
     $stmt->execute();
 }
-
+$foto = "";
+$beschrijving = "";
 if(isset($_POST["hobbySubmit"])) {
     $hobbyid = $_POST["hobby"];
     $foto = $_POST["foto"];
