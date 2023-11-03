@@ -105,6 +105,29 @@ if(isset($_SESSION['gebruiker_id'])){
 //    header("location: ../controllers/inloggen.php");
 }
 
+$query = "SELECT * FROM gebruiker_heeft_scholen WHERE gebruikers_id = $gebruikers_id";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$gebruikerScholen = $stmt->fetchAll();
+
+
+$query = "SELECT * FROM gebruiker_heeft_hobby WHERE gebruikers_id = $gebruikers_id";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$gebruikerHobby = $stmt->fetchAll();
+
+
+$query = "SELECT * FROM gebruiker_heeft_bedrijf WHERE gebruikers_id = $gebruikers_id";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$gebruikerBedrijf = $stmt->fetchAll();
+
+$query = "SELECT * FROM gebruiker_heeft_vakken WHERE gebruikers_id = $gebruikers_id";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$gebruikerVakken = $stmt->fetchAll();
+
+
 if(isset($_POST["schoolSubmit"])) {
     $schoolnaam = $_POST["school"];
     $niveauschool = $_POST["niveau"];
