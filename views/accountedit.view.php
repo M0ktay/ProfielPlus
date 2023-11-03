@@ -1,7 +1,12 @@
 <?php
+//sessie word hier gestart
     session_start();
+
+    //hier word de database aangeroepen
     require '../controllers/dbconnectie.php';
 
+//Dit PHP-script controleert of een gebruiker is ingelogd
+// en haalt vervolgens gebruikersgegevens op uit de database op basis van het 'gebruiker_id'
     if (isset($_SESSION['gebruiker_id'])) {
         $user_id = $_SESSION['gebruiker_id'];
 
@@ -19,6 +24,8 @@
     }
 
     
+//Dit PHP-script behandelt het verwerken van een formulier voor het aanpassen van gebruikersgegevens,
+// inclusief validatie en database-updates, en geeft feedback aan de gebruiker.
 
     if(isset($_POST['aanpassen'])){
         if($_POST['voornaam'] != "" || $_POST['achternaam'] != "" || $_POST['email'] != "" || $_POST['gebruikersnaam'] != "" ){
@@ -126,6 +133,7 @@
 </head>
 <body>
 <?php
+//hier worden de nav en footer aangeroepen
 require 'partials/nav.php';
 require 'partials/footer.php';
 ?>
@@ -135,6 +143,7 @@ require 'partials/footer.php';
     <div id="container">
     <section id='box'>
         <h1>Account aanpassen</h1><hr><br>
+<!--        in deze input velden word van te voren alle gegevens uit de database laten zien zodat je kunt zien wat je aanpast en wat er al stond-->
         <input type='text' placeholder="voornaam" value="<?php echo isset($voornaam) ? $voornaam : ''; ?>" name='voornaam'><br><br>
         <input type='text' placeholder="achternaam" value="<?php echo isset($achternaam) ? $achternaam : ''; ?>" name='achternaam'><br><br>
         <input type='email' placeholder="email" value="<?php echo isset($email) ? $email : ''; ?>" name='email'><br><br>

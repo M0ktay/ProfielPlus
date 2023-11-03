@@ -1,2 +1,3 @@
 <?php
-require 'C:\Users\Gebruiker\Desktop\Schoolmap\ProfielPlus\views\beheer.view.php';
+//dit bestandje linkt door naar de view.php
+require '../views/beheer.view.php';
