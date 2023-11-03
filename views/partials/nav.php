@@ -6,6 +6,9 @@
     background-color: #F8F0E5;
 }
 
+nav {
+    z-index: 2;
+}
         #navbar {
             overflow: hidden;
             background-color: #0F2C59;
@@ -13,6 +16,7 @@
             position: fixed;
             left: 0;
             top: 0;
+            
 
         }
  
