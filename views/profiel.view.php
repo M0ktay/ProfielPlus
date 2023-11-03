@@ -83,7 +83,9 @@ $vakken = $stmt->fetchAll();
                 <div class="tag">Gebruikersnaam:</div><div class="gegevens">
                     <?php
                     foreach ($gebruikers as $gebruiker){
-                        echo $gebruiker['gebruikersnaam'] . "<?php if($id == $user_id){?><a href='../controllers/accountedit.php?id=$gebruiker[0]' class='edit'>Edit</a></div><?php}?>";
+                        var_dump($id);
+                        var_dump($user_id);
+                        echo $gebruiker['gebruikersnaam'] . "<?php if ($id == $user_id) { ?><a href='../controllers/accountedit.php?id=<?php echo $gebruiker[0]; ?>' class='edit'>Edit</a><?php } ?>";
                         echo "<hr class='hrBlue'>" . "<div class='tag'>Voornaam:</div><div class='gegevens'>" . $gebruiker['voornaam'] . "</div>"  . "<hr class='hrBlue'>";
                         echo "<div class='tag'>Achternaam:</div><div class='gegevens'>" . $gebruiker['achternaam'] . "</div>" . "<hr class='hrBlue'>";
                         echo "<div class='tag'>Email:</div><div class='gegevens'>" . $gebruiker['email'] . "</div>" . "<hr class='hrBlue'>";
@@ -96,7 +98,7 @@ $vakken = $stmt->fetchAll();
                         <?php
                             foreach ($scholen as $school){
                                 if (empty($school['eindDatum'])) {
-                                    echo "<div class='tag'>Schoolnaam:</div><div class='gegevens' >" . $school['naam'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Niveau:</div><div class='gegevens'>" . $school['niveauNaam'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Startdatum:</div><div class='gegevens' >" . $school['startDatum'] . "</div>" . "<div class='edit-container'><?php if($id == $user_id){?><a href='../controllers/profielbeheer.php?id=$school[0]' class='edit'>Edit</a></div><?php}?>" . "<hr class='hrBlue'>";
+                                    echo "<div class='tag'>Schoolnaam:</div><div class='gegevens' >" . $school['naam'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Niveau:</div><div class='gegevens'>" . $school['niveauNaam'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Startdatum:</div><div class='gegevens' >" . $school['startDatum'] . "</div>" . "<div class='edit-container'><?php if($id == $user_id){?><a href='../controllers/profielbeheer.php?id=$school[0]?edit=school' class='edit'>Edit</a></div><?php}?>" . "<hr class='hrBlue'>";
                                 }
                             }
                         ?>
@@ -118,7 +120,7 @@ $vakken = $stmt->fetchAll();
                                 foreach ($vakken as $vakk) {
                                     echo "<tr>";
                                     echo "<td>" . $vakk['naam'] . "</td>";
-                                    echo "<td>" . $vakk['cijfer'] . "<?php if($id == $user_id){?><a href='../controllers/profielbeheer.php?id=$school[0]' class='edit'>Edit</a></div><?php}?>" . "</td>";
+                                    echo "<td>" . $vakk['cijfer'] . "<?php if($id == $user_id){?><a href='../controllers/profielbeheer.php?id=$school[0]?edit=vak' class='edit'>Edit</a></div><?php}?>" . "</td>";
                                     echo "</tr>";
                                 }
                                 echo "";
@@ -134,7 +136,7 @@ $vakken = $stmt->fetchAll();
                         <?php
                             foreach ($scholen as $school) {
                                 if (!empty($school['eindDatum'])) {
-                                    echo "<div class='tag'>Schoolnaam:</div><div class='gegevens'>" . $school['naam'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Diploma's:</div><div class='gegevens'>" . $school['diploma'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Startdatum:</div><div class='gegevens' >" . $school['startDatum'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Einddatum:</div><div class='gegevens' >" . $school['eindDatum'] . "</div>" . "<?php if($id == $user_id){?><a href='../controllers/profielbeheer.php?id=$school[0]' class='edit'>Edit</a></div><?php}?>" . "<hr class='hrBlue'>";
+                                    echo "<div class='tag'>Schoolnaam:</div><div class='gegevens'>" . $school['naam'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Diploma's:</div><div class='gegevens'>" . $school['diploma'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Startdatum:</div><div class='gegevens' >" . $school['startDatum'] . "</div>" . "<hr class='hrBlue'>" . "<div class='tag'>Einddatum:</div><div class='gegevens' >" . $school['eindDatum'] . "</div>" . "<?php if($id == $user_id){?><a href='../controllers/profielbeheer.php?id=$school[0]?edit=school' class='edit'>Edit</a></div><?php}?>" . "<hr class='hrBlue'>";
                                 }
                         }
                         ?>
@@ -144,7 +146,7 @@ $vakken = $stmt->fetchAll();
                 <div class="hobbyWrap">
                     <?php
                     foreach ($gebruikersHobby as $hobby){
-                        echo "<div class='hobby'>" . $hobby['naam'] . "</div>" . "<div class='beschrijving'>" . $hobby['beschrijving'] . "</div>" .  "<?php if($id == $user_id){?><a href='../controllers/profielbeheer.php?id=$hobby[0]' class='edit'>Edit</a></div><?php}?>" . "<hr class='hrBlue'>";
+                        echo "<div class='hobby'>" . $hobby['naam'] . "</div>" . "<div class='beschrijving'>" . $hobby['beschrijving'] . "</div>" .  "<?php if($id == $user_id){?><a href='../controllers/profielbeheer.php?id=$hobby[0]?edit=hobby' class='edit'>Edit</a></div><?php}?>" . "<hr class='hrBlue'>";
                     }
                     ?>
             </article>
@@ -153,7 +155,7 @@ $vakken = $stmt->fetchAll();
                     <?php
                     foreach ($bedrijven as $bedrijf) {
                         if (empty($bedrijf['eindDatum'])) {
-                            echo "<div class='tag'>Werkplaats:</div>" . $bedrijf['bedrijfNaam'] . "<hr class='hrBlue'>" . "<div class='tag'>Functietitel:</div>" . $bedrijf['functieTitel'] . "<hr class='hrBlue'>" . "<div class='tag'>StartDatum:</div>" . $bedrijf['startDatum'] .  "<?php if($id == $user_id){?><a href='../controllers/profielbeheer.php?id=$bedrijf[0]' class='edit'>Edit</a></div><?php}?>" . "<hr class='hrBlue'>";
+                            echo "<div class='tag'>Werkplaats:</div>" . $bedrijf['bedrijfNaam'] . "<hr class='hrBlue'>" . "<div class='tag'>Functietitel:</div>" . $bedrijf['functieTitel'] . "<hr class='hrBlue'>" . "<div class='tag'>StartDatum:</div>" . $bedrijf['startDatum'] .  "<?php if($id == $user_id){?><a href='../controllers/profielbeheer.php?id=$bedrijf[0]?edit=bedrijf' class='edit'>Edit</a></div><?php}?>" . "<hr class='hrBlue'>";
                         }
                     }
                     ?>
@@ -162,7 +164,7 @@ $vakken = $stmt->fetchAll();
                         <?php
                         foreach ($bedrijven as $bedrijf) {
                             if (!empty($bedrijf['eindDatum'])) {
-                                echo "<div class='tag'>Werkplaats:</div>" . $bedrijf['bedrijfNaam'] . "<hr class='hrBlue'>" . "<div class='tag'>Functietitel:</div>" . $bedrijf['functieTitel'] . "<hr class='hrBlue'>" . "<div class='tag'>StartDatum:</div>" . $bedrijf['startDatum'] . "<hr class='hrBlue'>" . "<div class='tag'>EindDatum</div>" . $bedrijf['eindDatum'] .  "<?php if($id == $user_id){?><a href='../controllers/profielbeheer.php?id=$bedrijf[0]' class='edit'>Edit</a></div><?php}?>" . "<hr class='hrBlue'>";
+                                echo "<div class='tag'>Werkplaats:</div>" . $bedrijf['bedrijfNaam'] . "<hr class='hrBlue'>" . "<div class='tag'>Functietitel:</div>" . $bedrijf['functieTitel'] . "<hr class='hrBlue'>" . "<div class='tag'>StartDatum:</div>" . $bedrijf['startDatum'] . "<hr class='hrBlue'>" . "<div class='tag'>EindDatum</div>" . $bedrijf['eindDatum'] .  "<?php if($id == $user_id){?><a href='../controllers/profielbeheer.php?id=$bedrijf[0]?edit=bedrijf' class='edit'>Edit</a></div><?php}?>" . "<hr class='hrBlue'>";
                             }
                         }
                         ?>
