@@ -1,4 +1,8 @@
+<?php
 
+session_start();
+
+?>
 <html lang="eng">
 <head>
     <style>
@@ -59,14 +63,17 @@ nav {
 
 <header>
     <nav id="navbar">
+        <!-- Hier word de afbeelding opgeroepen en als je op de afbeelding klikt dan ga je naar de home page -->
         <a class="active" href="../controllers/home.php"><img src="../views/partials/pf_logo.png" class="logo"></a>
 
         <?php 
+        // Hier word gekeken of je ingelogd bent, als je dat bent zie je profiel en profiel aanmaken
         if (isset($_SESSION['gebruiker_id'])) { $id = $_SESSION['gebruiker_id'] ?>
             <a href="../controllers/profiel.php">Profiel</a>
             <a href="../controllers/profielaanmaken.php">Profiel aanmaken</a>
             <?php  ?>
             <a href="../controllers/uitloggen.php">Uitloggen</a>
+            <!-- Als je niet ingelogd ben dan zie je inloggen en registreren en deze else zorgt daarvoor -->
         <?php } else { ?>
           
             <a href="../controllers/inloggen.php">Inloggen</a>

@@ -20,7 +20,6 @@ $query = "SELECT * FROM gebruikers";
 $stmt = $conn->prepare($query);
 $stmt->execute();
 $gebruikers = $stmt->fetchAll();
-
 ?>
 <main>
     <br/><br/><br/>

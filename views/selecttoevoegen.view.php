@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-//require 'partials/nav.php';
+require 'partials/nav.php';
 require '../controllers/dbconnectie.php';
 
 $toevoegen = $_GET["toevoegen"];

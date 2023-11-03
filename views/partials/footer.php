@@ -16,19 +16,16 @@
             background-color: #0F2C59;
             color: white;
             text-align: center;
-            line-height: 40px; /* Adjust this to center the text vertically */
+            line-height: 40px; 
         }
 
         footer {
             z-index: 2;
         }
-        /* Additional styles */
-        /* You may add more styles as per your design needs */
+        
     </style>
 </head>
-<body>
-    <!-- Your page content here -->
-    
+<body>    
     <footer class="footer">
         ProfielPlus
     </footer>
