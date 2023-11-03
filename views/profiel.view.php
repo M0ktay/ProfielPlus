@@ -1,10 +1,14 @@
 <?php
-
+//sessie word hier gestart
 session_start();
+//database word hier aangeroepen
 require '../controllers/dbconnectie.php';
 
+//get id word opgeslagen in een variable om later aan te roepen
 $id = $_GET['id'];
 
+//Dit PHP-script controleert of een gebruiker is ingelogd en haalt vervolgens de gebruikersgegevens op uit de database op basis van hun 'gebruiker_id',
+// zoals de voornaam, achternaam, e-mail en gebruikersnaam.
 if (isset($_SESSION['gebruiker_id'])) {
 $user_id = $_SESSION['gebruiker_id'];
 
@@ -20,13 +24,14 @@ $user_id = $_SESSION['gebruiker_id'];
 
     }
 }
-
+//de statement haalt alle informatie van de gebruikers op waar de id uit de get van komt
 $query = "SELECT * FROM gebruikers where id = $id";
 $stmt = $conn->prepare($query);
 $stmt->execute();
 $gebruikers = $stmt->fetchAll();
 //die(var_dump($gebruikers));
 
+//de statement haalt alles van hobby en gebruiker_heeft_hobby op waar de gebruikers_id uit de get van komt
 $query = "select hobby.*, gebruiker_heeft_hobby.*
 from hobby
 join gebruiker_heeft_hobby
@@ -36,7 +41,7 @@ $stmt->execute();
 $gebruikersHobby = $stmt->fetchAll();
 //die(var_dump($gebruikersHobby));
 
-
+//de statement haalt alles van scholen, gebruiker_heeft_scholen en niveau op waar de gebruikers_id uit de get van komt
 $query = "SELECT scholen.*, gebruiker_heeft_scholen.*, niveau.id, niveau.naam AS niveauNaam
 FROM scholen
 JOIN gebruiker_heeft_scholen ON scholen.id = gebruiker_heeft_scholen.scholen_id
@@ -47,6 +52,7 @@ $stmt->execute();
 $scholen = $stmt->fetchAll();
 //die(var_dump($scholen));
 
+//de statement haalt alles op van gebruikers, gebruiker_heeft_school en bedrijf op waar de gebruikers_id uit de get van komt
 $query = "select gebruikers.*, gebruiker_heeft_bedrijf.*, bedrijf.id, bedrijf.naam as bedrijfNaam
 from bedrijf
 join gebruiker_heeft_bedrijf
@@ -58,6 +64,7 @@ $stmt->execute();
 $bedrijven = $stmt->fetchAll();
 //die(var_dump($bedrijven));
 
+//de statement haalt alles op van vakken en gebruiker_heeft_vakken op waar de gebruikers_id uit de get van komt
 $query = "select vakken.id as vakken_id , vakken.naam, gebruiker_heeft_vakken.*
 from vakken
 join gebruiker_heeft_vakken

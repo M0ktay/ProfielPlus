@@ -3,7 +3,9 @@
     require '../controllers/dbconnectie.php';
 
     
-
+//Dit PHP-script verwerkt de registratie van gebruikers via een formulier, voert basisvalidatie uit, hasht het wachtwoord,
+// en slaat de gebruikersgegevens op in een database,
+// waarbij een beheerderscheck wordt ingesteld op basis van een aangevinkte checkbox.
     if(isset($_POST['registreren'])){
         if($_POST['voornaam'] != "" || $_POST['achternaam'] != "" || $_POST['email'] != "" || $_POST['gebruikersnaam'] != "" || $_POST['wachtwoord'] != "" ){
             try{
@@ -35,7 +37,8 @@
         }
         
     }
-
+//Dit PHP-script controleert of een gebruiker is ingelogd en haalt vervolgens uit de database op of de ingelogde gebruiker een beheerder is.
+// Het resultaat wordt opgeslagen in de variabele '$is_admin', die 'true' is als de gebruiker een beheerder is, anders is het 'false'.
     if(isset($_SESSION['user_id'])) {
         $user_id = $_SESSION['user_id'];
     
@@ -137,7 +140,7 @@
         <input type='email' placeholder="email" name="email"><br><br>
         <input type='text' placeholder="gebruikersnaam" name="gebruikersnaam"><br><br>
         <input type='password' placeholder="wachtwoord" name="wachtwoord"><br><br>
-        
+<!--        als de gebruiker een beheerder is dan pas kan je de checkbox zien en invullen-->
         <?php if($is_admin) { ?>
             <label id="checkboxText">Is beheerder?</label>
             <input type='checkbox' name="is_beheerder"> <br><br>
