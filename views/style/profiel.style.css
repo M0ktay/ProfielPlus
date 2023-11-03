@@ -21,7 +21,7 @@ font-size: 18px;
 height: auto;
 text-align: center;
 box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: #DAC0A3;
+    background-color: #EADBC8;
     color: #0F2C59;
 }
 .tag{
@@ -46,7 +46,7 @@ text-align: center;
 display: flex;
 flex-direction: row;
 box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: #DAC0A3;
+    background-color: #EADBC8;
     color: #0F2C59;
 }
 .Huidige{
@@ -70,7 +70,7 @@ height: auto;
 text-align: center;
 word-break: break-word;
 box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: #DAC0A3;
+    background-color: #EADBC8;
     color: #0F2C59;
 }
 .hobby{
@@ -97,7 +97,7 @@ flex-direction: row;
 overflow-y: scroll;
 max-height: 386px;
 box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: #DAC0A3;
+    background-color: #EADBC8;
     color: #0F2C59;
 }
 .Gestopt{
@@ -106,6 +106,61 @@ height: auto;
 }
 .beschrijving {
 max-width: 451px;
+}
+.popup {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: none;
+}
+.popup-content {
+    background-color: #EADBC8;
+    border-radius: 33px;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #0F2C59;
+    width: 30%;
+    font-weight: bolder;
+}
+.popup-content button {
+    display: block;
+    margin: 0 auto;
+}
+.show {
+    display: block;
+}
+h1 {
+    color: #0F2C59;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #EADBC8;
+    text-align: left;
+    padding: 8px;
+    background-color: #DAC0A3;
+}
+
+tr:nth-child(even) {
+    background-color: #EADBC8;
+}
+#myButton{
+    background-color: #DAC0A3;
+    border: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    height: fit-content;
+}
+.edit-container {
+    float: right;
 }
 /* width */
 ::-webkit-scrollbar {
@@ -133,6 +188,5 @@ max-width: 451px;
     margin-top: 15px;
 }
 }
-
 
 
