@@ -4,65 +4,7 @@ session_start();
 ?>
 <html lang="eng">
 <head>
-<style>
-    h2 {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    input[type="submit"] {
-        background-color: #DAC0A3;
-        border: 0;
-        border-radius: 3%;
-        padding: 10px 20px;
-        cursor: pointer;
-    }
-
-    input[type="text"] {
-        background-color: white;
-        border: solid black 5px;
-        border: 0;
-        padding: 10px 10px;
-        border-radius: 3%;
-    }
-
-    input[type="date"] {
-        background-color: white;
-        border: solid black 5px;
-        border: 0;
-        padding: 10px 10px;
-        border-radius: 3%;
-    }
-
-    input[type="number"] {
-        background-color: white;
-        border: solid black 5px;
-        border: 0;
-        padding: 10px 10px;
-        border-radius: 3%;
-    }
-    select{
-        background-color: white;
-        border: solid black 5px;
-        border: 0;
-        padding: 10px 10px;
-        border-radius: 3%;
-    }
-
-    #box {
-        background-color: #EADBC8;
-        padding: 50px;
-        width: 16%;
-        border-radius: 3%;
-        border: black solid 3px;
-        text-align: center;
-    }
-
-    .footer{
-        position: fixed;
-        left: 0;
-        bottom: 0;
-    }
-</style>
+    <link rel="stylesheet" href="/views/style/profielaanmaken.style.css">
 </head>
 <body>
 <?php
@@ -168,7 +110,7 @@ VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
 
 ?>
 <main>
-    <br/><br/><br/><br/>
+    <article class="grid-container">
     <section id="box">
         <h2>School</h2>
         <hr>
@@ -304,6 +246,7 @@ VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
             <input type="submit" name="vakSubmit" value="Toepassen">
         </form>
     </section>
+    </article>
 </main>
 <?php
 //hier word de footer toegevoegd

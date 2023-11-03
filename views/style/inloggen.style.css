@@ -1,0 +1,58 @@
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="submit"] {
+    background-color: #DAC0A3;
+    border: 0;
+    border-radius: 3%;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    background-color: white;
+    border: solid black 5px;
+    border: 0;
+    padding: 10px 10px;
+    border-radius: 3%;
+}
+
+input[type="password"] {
+    background-color: white;
+    border: solid black 5px;
+    border: 0;
+    padding: 10px 10px;
+    border-radius: 3%;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    margin: 0;
+}
+
+#box {
+    background-color: #EADBC8;
+    padding: 50px;
+    width: 16%;
+    border-radius: 3%;
+    border: black solid 3px;
+    text-align: center;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+label {
+    color:red;
+}
+
+#checkboxText {
+    font-size: 15px;
+}
