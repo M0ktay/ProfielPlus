@@ -38,34 +38,19 @@ $gebruikers = $stmt->fetchAll();
     <section class="grid-container-groot">
 
     <article class="grid-item">
-        <h3>Profielen</h3>
-        <div>
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Zoek op voornaam">
-            <br/><br/>
-            <table id="tabel">
-                <thead>
-                <tr>
-                    <td>Voornaam</td>
-                    <td>Achternaam</td>
-                </tr>
-                </thead>
-                <tbody>
-            <?php
-            foreach($gebruikers as $gebruiker){
-                echo "<tr>";
-                echo "<td>";
-                echo '<a href="../controllers/profiel.php?id=' . $gebruiker[0] . '">' . $gebruiker['voornaam'] . '</a>';
-                echo "</td>";
-                echo "<td>";
-                echo $gebruiker['achternaam'];
-                echo "</td>";
-                echo "</tr>";
-            }
-
-            ?>
-                </tbody>
-            </table>
-        </div>
+        <p class="Hometitel">Wat is ProfielPlus?</p><br>
+            <p class="Hometext">ProfielPlus biedt een unieke en veilige manier om jouw persoonlijke informatie en interesses digitaal te bewaren
+                en te organiseren zonder dat anderen toegang hebben tot je gegevens.
+                Onze toepassing is speciaal ontworpen voor privacybewuste individuen die hun online aanwezigheid willen verbeteren,
+                maar tegelijkertijd de volledige controle willen behouden over hun gegevens</p>
+        <p class="Hometext">
+            Meld je aan bij ProfielPlus en begin met het opzetten van je eigen persoonlijke profiel. Voeg informatie toe over jezelf,
+            waaronder je hobby's, werkervaring, opleiding en andere gegevens die je belangrijk vindt.
+        </p>
+        <p class="Hometext">
+            Met ProfielPlus kun je je persoonlijke informatie organiseren en gemakkelijk toegang krijgen tot belangrijke details over jezelf,
+            zoals je contactgegevens, professionele ervaring en interesses.
+        </p>
     </article>
 
     </section>
