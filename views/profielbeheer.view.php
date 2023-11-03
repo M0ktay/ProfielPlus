@@ -101,77 +101,56 @@ $vakken = $stmt->fetchAll();
 if(isset($_SESSION['gebruiker_id'])){
     $gebruikers_id = $_SESSION['gebruiker_id'];
 }else {
-    $gebruikers_id = 1;
-//    header("location: ../controllers/inloggen.php");
+    header("location: ../controllers/inloggen.php");
+}
+$id = $_GET["id"];
+if($id == 0){
+    header("location: ../controllers/inloggen.php");
 }
 
-$query = "SELECT * FROM gebruiker_heeft_scholen WHERE gebruikers_id = $gebruikers_id";
-$stmt = $conn->prepare($query);
-$stmt->execute();
-$gebruikerScholen = $stmt->fetchAll();
+$edit = $_GET["edit"];
 
 
-$query = "SELECT * FROM gebruiker_heeft_hobby WHERE gebruikers_id = $gebruikers_id";
-$stmt = $conn->prepare($query);
-$stmt->execute();
-$gebruikerHobby = $stmt->fetchAll();
-
-
-$query = "SELECT * FROM gebruiker_heeft_bedrijf WHERE gebruikers_id = $gebruikers_id";
-$stmt = $conn->prepare($query);
-$stmt->execute();
-$gebruikerBedrijf = $stmt->fetchAll();
-
-$query = "SELECT * FROM gebruiker_heeft_vakken WHERE gebruikers_id = $gebruikers_id";
-$stmt = $conn->prepare($query);
-$stmt->execute();
-$gebruikerVakken = $stmt->fetchAll();
-
-
-if(isset($_POST["schoolSubmit"])) {
+if(isset($_POST["schoolSubmit"]) && $edit == "school") {
     $schoolnaam = $_POST["school"];
     $niveauschool = $_POST["niveau"];
     $diploma = isset($_POST['is_active']) ? 1 : 0;
     $startDatumschool = $_POST["startdatumschool"];
     $eindDatumschool = $_POST["einddatumschool"];
 
-    $query = "INSERT INTO gebruiker_heeft_scholen (gebruikers_id, scholen_id, niveau_id, diploma, startDatum, eindDatum) 
-VALUES('$gebruikers_id','$schoolnaam', '$niveauschool', '$diploma', '$startDatumschool', '$eindDatumschool');";
+    $query = "UPDATE gebruiker_heeft_scholen SET scholen_id = '$schoolnaam', niveau_id = '$niveauschool', diploma = '$diploma', startDatum = '$startDatumschool', eindDatum = '$eindDatumschool' WHERE gebruikers_id = $gebruikers_id AND id = $id;";
     $stmt = $conn->prepare($query);
     $stmt->execute();
 }
 
-if(isset($_POST["hobbySubmit"])) {
+if(isset($_POST["hobbySubmit"]) && $edit == "hobby") {
     $hobbyid = $_POST["hobby"];
     $foto = $_POST["foto"];
     $beschrijving = $_POST["beschrijving"];
 
-    $query = "INSERT INTO gebruiker_heeft_hobby (hobby_id, gebruikers_id, afbeelding, beschrijving) 
-VALUES('$hobbyid', '$gebruikers_id', '$foto', '$beschrijving');";
+    $query = "UPDATE gebruiker_heeft_hobby SET hobby_id = '$hobbyid', afbeelding = '$foto', beschrijving = '$beschrijving' WHERE gebruiker_id = $gebruikers_id AND id = $id;";
     $stmt = $conn->prepare($query);
     $stmt->execute();
 }
 
-if(isset($_POST["werkSubmit"])) {
+if(isset($_POST["werkSubmit"]) && $edit == "bedrijf") {
     $bedrijfid = $_POST["bedrijf"];
     $locatie = $_POST["locatie"];
     $functietitel = $_POST['functietitel'];
     $startDatumwerk = $_POST["startdatumwerk"];
     $eindDatumwerk = $_POST["einddatumwerk"];
 
-    $query = "INSERT INTO gebruiker_heeft_bedrijf (gebruikers_id, bedrijf_id, startDatum, eindDatum, functieTitel, locatie ) 
-VALUES('$gebruikers_id', '$bedrijfid', '$startDatumwerk', '$eindDatumwerk', '$functietitel', '$locatie');";
+    $query = "UPDATE gebruiker_heeft_bedrijf SET bedrijf_id = '$bedrijfid', startDatum = '$startDatumwerk', eindDatum = '$eindDatumwerk', functieTitel = '$functietitel', locatie = '$locatie' WHERE gebruikers_id = $gebruikers_id AND id = $id;";
     $stmt = $conn->prepare($query);
     $stmt->execute();
 }
 
 
-if(isset($_POST["vakSubmit"])) {
+if(isset($_POST["vakSubmit"]) && $edit == "vak") {
     $schoolVak = $_POST["vak"];
     $cijfer = $_POST["cijfer"];
 
-    $query = "INSERT INTO gebruiker_heeft_vakken (gebruikers_id, vakken_id, cijfer) 
-VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
+    $query = "UPDATE  gebruiker_heeft_vakken SET vakken_id = '$schoolVak', cijfer = '$cijfer' WHERE gebruikers_id = $gebruikers_id AND id = $id;";
     $stmt = $conn->prepare($query);
     $stmt->execute();
 }
@@ -188,10 +167,17 @@ VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
             <select name="school" id="school" required>
                 <option value="" disabled selected>School</option>
                 <?php
-                foreach($scholen as $school){
-                    echo "<option value='$school[0]'>";
-                    echo $school['naam'] . "</option>";
-                }
+
+                    foreach ($scholen as $school) {
+                        if ($gebruikerScholen['scholen_id'] == $school['id']) {
+                            echo "<option value='" . $school['id'] . "' selected>";
+                            echo $school['naam'] . "</option>";
+                        } else {
+                            echo "<option value='" . $school['id'] . "'>";
+                            echo $school['naam'] . "</option>";
+                        }
+                    }
+
                 ?>
             </select>
             <br/>
@@ -203,6 +189,10 @@ VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
                 <option value="" disabled selected>Niveau</option>
                 <?php
                 foreach($niveaus as $niveau){
+                    if ($gebruikerScholen['niveau_id'] == $niveau['id']){
+                        echo "<option value='$niveau[0]' selected>";
+                        echo $niveau['naam'] . "</option>";
+                    }
                     echo "<option value='$niveau[0]'>";
                     echo $niveau['naam'] . "</option>";
                 }
@@ -210,7 +200,7 @@ VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
             </select>
             <br/>
             <a href="selecttoevoegen.php?toevoegen=Niveau">Niveau toevoegen</a><br/><br/>
-            <input type="checkbox" id="diploma" name="diploma" value="1">
+            <input type="checkbox" id="diploma" name="diploma" >
             <label for="diploma">Diploma?</label><br><br/>
             <input type="text" name="startdatumschool" placeholder="Startdatum"
                    onfocus="(this.type='date')" required> <br/><br/>
