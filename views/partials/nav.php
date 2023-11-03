@@ -59,7 +59,7 @@
 
         <?php 
         if (isset($_SESSION['gebruiker_id'])) { $id = $_SESSION['gebruiker_id'] ?>
-<a href="../controllers/profiel.php?id=<?php echo $id; ?>">Profiel</a>
+            <a href="../controllers/profiel.php?id=<?php echo $id; ?>">Profiel</a>
             <a href="../controllers/profielaanmaken.php">Profiel aanmaken</a>
             <?php  ?>
             <a href="../controllers/uitloggen.php">Uitloggen</a>
