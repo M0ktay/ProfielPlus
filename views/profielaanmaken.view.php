@@ -99,7 +99,8 @@ VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
 
 ?>
 <main>
-    <br/><br/><br/><br/>
+ 
+    <article class="grid-container">
     <section id="box">
         <h2>School</h2>
         <hr>
@@ -216,6 +217,7 @@ VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
             <input type="submit" name="vakSubmit" value="Toepassen">
         </form>
     </section>
+    </article>
 </main>
 <?php
 require 'partials/footer.php';
