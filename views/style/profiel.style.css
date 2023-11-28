@@ -1,34 +1,42 @@
+/*Styling voor de background color*/
 body{
     background-color:#F8F0E5;
 }
+/*Styling voor de main*/
 main {
     padding-bottom: 100px;
 }
 
-
+/*Font voor alle kleine teksten die we aanduiden met p*/
 p {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/*Styling voor alle links*/
 a {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
 }
 
+/*Styling voor alle bold teksten*/
 b {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
 }
 
+/*Styling voor alle divs*/
 div {
         font-family: Arial, Helvetica, sans-serif;
         font-size: 15px;
 }
 
+/*Styling voor de article persoon*/
 .Persoon{
     display: flex;
     font-size: 20px;
 }
+
+/*Styling voor alle containers dat ze responsive zijn*/
 .grid-container {
     display: grid;
     grid-template-columns: auto auto;
@@ -37,6 +45,8 @@ div {
     margin-top: 5%;
 
 }
+
+/*Styling vood de article persoonsgegevens*/
 .Persoonsgegevens{
 border: 1px solid #0F2C59;
 border-radius: 33px;
@@ -48,6 +58,8 @@ box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
     background-color: #EADBC8;
     color: #0F2C59;
 }
+
+/*Styling voor alle tags*/
 .tag{
 font-weight: bold;
 font-size: 20px;
@@ -55,11 +67,15 @@ word-break: break-word;
 text-align: left;
 margin-top: 15px;
 }
+
+/*Styling voor de article gegevens*/
 .gegevens{
 font-size: 18px;
 word-break: break-word;
 text-align: center;
 }
+
+/*Styling voor de article schoolprestaties*/
 .schoolPrestaties{
 border: 1px solid #0F2C59;
 border-radius: 33px;
@@ -73,12 +89,16 @@ box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
     background-color: #EADBC8;
     color: #0F2C59;
 }
+
+/*Styling voor de articles huidig*/
 .Huidige{
 width: 50%;
 height: 314px;
 font-weight:bold;
 overflow-y: auto;
 }
+
+/*Styling voor de articles huidige */
 .HuidigeDivje{
     width: 50%;
     height: 314px;
@@ -91,10 +111,14 @@ overflow-y: auto;
      box-sizing: border-box;
 
 }
+
+/*Styling voor de blauwe hr*/
 .hrBlue{
     border: 1px solid #0F2C59;
 
 }
+
+/*Styling voor de articles  afgerond*/
 .Afgerond{
     width: 50%;
     height: 314px;
@@ -103,6 +127,7 @@ overflow-y: auto;
 
 }
 
+/*Styling voor de afgerond div*/
 .AfgerondDivje{
     width: 50%;
     height: 314px;
@@ -115,6 +140,7 @@ overflow-y: auto;
      box-sizing: border-box;
 }
 
+/*Styling voor de huidig div*/
 .HuidigDivje{
     width: 50%;
     height: 314px;
@@ -127,6 +153,7 @@ overflow-y: auto;
      box-sizing: border-box;
 }
 
+/*Styling voor de hobbys*/
 .hobbys{
 border: 1px solid #0F2C59;
 border-radius: 33px;
@@ -139,18 +166,24 @@ box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
     background-color: #EADBC8;
     color: #0F2C59;
 }
+/*Styling voor hobby*/
 .hobby{
 margin-top: 15px;
 font-weight:bold;
 }
+
+/*Styling voor de foto bij hobby*/
 .hobbyImg {
 height: 50px;
 margin: 0 0 0 15px;
 position: relative;
 }
+/*Styling voor hobby*/
 .hobbyWrap{
 text-align: left;
 }
+
+/*Styling voor werkervaring*/
 .werkErvaring{
 border: 1px solid #0F2C59;
 border-radius: 33px;
@@ -166,6 +199,8 @@ box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
 background-color: #EADBC8;
 color: #0F2C59;
 }
+
+/*Styling voor de gestopte werk*/
 .Gestopt{
 width: 50%;
 height: 314px;
@@ -173,6 +208,7 @@ font-weight:bold;
 overflow-y: auto;
 }
 
+/*Styling voor de gestopt div*/
 .GestoptDivje{
 width: 50%;
 height: auto;
@@ -185,10 +221,12 @@ width: 100%;
 box-sizing: border-box;
     }
 
-
+/*Styling voor de beschrijving*/
 .beschrijving {
 max-width: 451px;
 }
+
+/*Styling voor de pop up voor vakken*/
 .popup {
     position: fixed;
     z-index: 1;
@@ -199,6 +237,8 @@ max-width: 451px;
     overflow: auto;
     display: none;
 }
+
+/*Styling voor de content van de pop up voor vakken*/
 .popup-content {
     background-color: #EADBC8;
     border-radius: 33px;
@@ -208,6 +248,8 @@ max-width: 451px;
     width: 30%;
     font-weight: bolder;
 }
+
+/*Styling voor de button voor de pop up van vakken*/
 .popup-content button {
     display: block;
     margin: 0 auto;
@@ -215,15 +257,20 @@ max-width: 451px;
 .show {
     display: block;
 }
+
+/*Styling voor alle grote kopteksten*/
 h1 {
     color: #0F2C59;
 }
+
+/*Styling voor de tabel*/
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
+/*Styling voor de rows in de tabel*/
 td, th {
     border: 1px solid #EADBC8;
     text-align: left;
@@ -234,6 +281,8 @@ td, th {
 tr:nth-child(even) {
     background-color: #EADBC8;
 }
+
+/*Styling voor een button*/
 #myButton{
     background-color: #DAC0A3;
     border: 0;
@@ -242,10 +291,12 @@ tr:nth-child(even) {
     height: fit-content;
 
 }
+
 .edit-container {
     float: right;
 }
 
+/*Styling voor de edit knop*/
 .edit {
     background-color: #DAC0A3;
     border: 0;
@@ -258,6 +309,7 @@ tr:nth-child(even) {
     margin-top: -3%;
     position: relative;
 }
+/*Styling voor de scroll functies*/
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
@@ -271,6 +323,8 @@ tr:nth-child(even) {
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
+/*Styling voor de containers dat ze responsive zijn*/
 @media(max-width: 1160px){
 .grid-container{
     display: flex;
@@ -278,6 +332,7 @@ tr:nth-child(even) {
     
 }
 }
+/*Styling voor de foto bij hobbys*/
 @media(max-width: 685px) {
 .hobbyImg {
     float:none;

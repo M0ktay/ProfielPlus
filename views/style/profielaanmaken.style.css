@@ -1,6 +1,9 @@
+/*Styling voor de iets kleinere kopteksten*/
 h2 {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/*Styling voor de containers dat ze responsive zijn*/
 .grid-container {
     display: grid;
     grid-template-columns: auto auto;
@@ -11,6 +14,7 @@ h2 {
     justify-items: center;
 }
 
+/*Styling voor alle submit buttons*/
 input[type="submit"] {
     background-color: #DAC0A3;
     border: 0;
@@ -19,6 +23,7 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+/*Styling voor alle tekst invoer velden*/
 input[type="text"] {
     background-color: white;
     border: solid black 5px;
@@ -27,6 +32,7 @@ input[type="text"] {
     border-radius: 3%;
 }
 
+/*Styling voor alle datum velden*/
 input[type="date"] {
     background-color: white;
     border: solid black 5px;
@@ -35,6 +41,7 @@ input[type="date"] {
     border-radius: 3%;
 }
 
+/*Styling voor alle nummer invoer velden*/
 input[type="number"] {
     background-color: white;
     border: solid black 5px;
@@ -42,6 +49,7 @@ input[type="number"] {
     padding: 10px 10px;
     border-radius: 3%;
 }
+/*Styling voor de select opties*/
 select{
     background-color: white;
     border: solid black 5px;
@@ -50,6 +58,7 @@ select{
     border-radius: 3%;
 }
 
+/*Styling voor de boxes die in de containers zitten zodat ze responsive zijn*/
 #box {
     background-color: #EADBC8;
     padding: 50px;
@@ -59,11 +68,14 @@ select{
     text-align: center;
 }
 
+/*Styling voor de footer dat die fixed is op deze pagina*/
 .footer{
     position: fixed;
     left: 0;
     bottom: 0;
 }
+
+/*Styling voor de containers dat ze responsive zijn*/
 @media(max-width: 885px){
     .grid-container{
         display: inline-block;

@@ -59,7 +59,7 @@
 </head>
 <body>
 <?php
-// require 'partials/nav.php';
+ require 'partials/nav.php';
 ?>
 <main>
     <form method="post">

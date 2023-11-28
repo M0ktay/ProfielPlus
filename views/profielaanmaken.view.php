@@ -99,7 +99,7 @@ VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
 
 ?>
 <main>
- 
+
     <article class="grid-container">
     <section id="box">
         <h2>School</h2>

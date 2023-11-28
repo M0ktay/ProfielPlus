@@ -78,6 +78,7 @@ $vakken = $stmt->fetchAll();
 <html>
 <head>
     <link rel="stylesheet" href="../views/style/profiel.style.css">
+    <script src="../views/javascript/script.js"></script>
 </head>
 <body>
 <main>
@@ -270,17 +271,3 @@ $vakken = $stmt->fetchAll();
 <footer>
 </footer>
 </html>
-<script>
-    //hier worden de pop up laten zien als je op de knop klikt
-        myButton.addEventListener("click", function () {
-        myPopup.classList.add("show");
-    });
-        closePopup.addEventListener("click", function () {
-        myPopup.classList.remove("show");
-    });
-        window.addEventListener("click", function (event) {
-        if (event.target == myPopup) {
-        myPopup.classList.remove("show");
-    }
-    });
-</script>
