@@ -55,7 +55,7 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="/views/style/inloggen.style.css">
+    <link rel="stylesheet" href="/views/style/style.css">
 </head>
 <body>
 <?php
@@ -64,8 +64,8 @@
 <main>
     <form method="post">
     <br/><br/><br/><br/>
-    <div id="container">
-    <section id='box'>
+    <div class="container">
+    <section class='box'>
         <h1>Registreren</h1><hr><br>
         <input type='text' placeholder="voornaam" name='voornaam'><br><br>
         <input type='text' placeholder="achternaam" name='achternaam'><br><br>
@@ -74,7 +74,7 @@
         <input type='password' placeholder="wachtwoord" name="wachtwoord"><br><br>
 <!--        als de gebruiker een beheerder is dan pas kan je de checkbox zien en invullen-->
         <?php if($is_admin) { ?>
-            <label id="checkboxText">Is beheerder?</label>
+            <label class="checkboxText">Is beheerder?</label>
             <input type='checkbox' name="is_beheerder"> <br><br>
         <?php } ?>
         <input type="submit" name="registreren" value="Registreren" >

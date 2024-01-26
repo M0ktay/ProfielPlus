@@ -1,0 +1,502 @@
+/*account eddit*/
+/*font voor alle kopteksten*/
+h1, h2, h3 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*font voor alle labels, oftewel kleine teksten die duidelijkheid bieden*/
+label {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Styling voor alle submit knoppen*/
+/*de kleur van de knop, de rand van de knop en hoe de cursor eruit moer zien als je eroverheen hovert*/
+input[type="submit"] {
+    background-color: #DAC0A3;
+    border: 0;
+    border-radius: 3%;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/*Styling voor alle tekst invoer velden*/
+/*kleur van het invoerveld voor tekst en de rand van het invoerveld */
+input[type="text"] {
+    background-color: white;
+    border: solid black 5px;
+    border: 0;
+    padding: 10px 10px;
+    border-radius: 3%;
+}
+
+/*Styling voor alle wachtwoord velden*/
+/*de kleur van het invoerveld voor het wachtwoord en de rand van het invoerveld*/
+input[type="password"] {
+    background-color: white;
+    border: solid black 5px;
+    border: 0;
+    padding: 10px 10px;
+    border-radius: 3%;
+}
+
+/*Styling voor alle email velden*/
+/*de kleur van het invoerveld voor het mailadres en de rand van het invoerveld*/
+input[type="email"] {
+    background-color: white;
+    border: solid black 5px;
+    border: 0;
+    padding: 10px 10px;
+    border-radius: 3%;
+}
+
+/*Styling voor alle containers*/
+/*display flex zodat we de flexbox layout kunnen toepassen, justify content zodat de content in de midden komt te staan,en styling voor de positie van de container en hoogte*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    margin: 0;
+}
+
+/*Styling voor alle boxes die we gebruiken in de containers*/
+/*de kleur van de box, de positionering van buiten en binnen de box, de rand van box word hier ook bepaald*/
+.box {
+    background-color: #EADBC8;
+    padding: 50px;
+    width: 16%;
+    border-radius: 3%;
+    border: black solid 3px;
+    text-align: center;
+}
+
+/*Styling voor de footer op deze pagina zodat die fixed is*/
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+
+
+
+/*home*/
+
+/*Font voor alle tekst die we aanduiden met de p tag*/
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*font, tekstkleur en grote voor alle links*/
+/*ook bepalen we hier dat er geen streepje onder de link komt als er overheen word gehovert met text-decoration: none*/
+a {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/*styling voor de grid-containers op de homepagina zodat het responsive is*/
+.grid-container-home {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 30px;
+    gap: 20px;
+}
+
+/*styling voor de grote brede container zodat die responsive is*/
+.grid-container-groot{
+    display: grid;
+    grid-template-columns: auto;
+    padding: 30px;
+    gap: 20px;
+    max-height: 400px;
+}
+
+/*Styling voor alle items in de containers*/
+.grid-item {
+    border: 2px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    height: auto;
+    text-align: center;
+    border-radius: 3px;
+}
+
+/*styling van de breedte voor t logo op de homepage*/
+.pfLogo {
+    width: 50%;
+}
+
+/*Styling voor de tabel*/
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/*styling voor de rows in de tabel*/
+td, th {
+    border: 1px solid #EADBC8;
+    text-align: left;
+    padding: 8px;
+    background-color: #DAC0A3;
+}
+
+tr:nth-child(even) {
+    background-color: #EADBC8;
+}
+
+
+
+
+/*inloggen*/
+/*font size style voor de tekst bij de checkbox*/
+.checkboxText {
+    font-size: 15px;
+}
+
+/*profiel*/
+/*Styling voor de background color van de body*/
+body{
+    background-color:#F8F0E5;
+}
+/*Styling voor de main*/
+main {
+    padding-bottom: 100px;
+}
+
+/*Styling voor alle bold teksten*/
+b {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+/*Styling voor alle divs*/
+div {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+/*Styling voor de article persoon*/
+.Persoon{
+    display: flex;
+    font-size: 20px;
+}
+
+/*Styling voor alle gid-containers op de profielpagina dat ze responsive zijn*/
+.grid-container-profiel {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 30px;
+    gap: 20px;
+    margin-top: 5%;
+
+}
+
+/*Styling voor tekst in de article en de article persoonsgegevens zelf*/
+.Persoonsgegevens{
+    border: 1px solid #0F2C59;
+    border-radius: 33px;
+    padding: 20px;
+    font-size: 18px;
+    height: auto;
+    text-align: center;
+    box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #EADBC8;
+    color: #0F2C59;
+}
+
+/*Styling voor de tekst in alle tags ook zorgt dit ervoor dat er een ruimte van 15 pixels komt boven de tag*/
+.tag{
+    font-weight: bold;
+    font-size: 20px;
+    word-break: break-word;
+    text-align: left;
+    margin-top: 15px;
+}
+
+/*Styling voor de tekst in de article gegevens*/
+.gegevens{
+    font-size: 18px;
+    word-break: break-word;
+    text-align: center;
+}
+
+/*Styling voor de tekst in de article en de article schoolprestaties zelf*/
+.schoolPrestaties{
+    border: 1px solid #0F2C59;
+    border-radius: 33px;
+    padding: 20px;
+    font-size: 18px;
+    height: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #EADBC8;
+    color: #0F2C59;
+}
+
+/*Styling voor de tekst in de article en de articles huidig zelf*/
+.Huidige{
+    width: 50%;
+    height: 314px;
+    font-weight:bold;
+    overflow-y: auto;
+}
+
+
+/*Styling die er voor zorgt dat de blauwe hr blauw is*/
+.hrBlue{
+    border: 1px solid #0F2C59;
+
+}
+
+/*Styling voor de tekst in de article en de articles  afgerond zelf*/
+.Afgerond{
+    width: 50%;
+    height: 314px;
+    font-weight:bold;
+    overflow-y: auto;
+
+}
+
+/*Styling voor de tekt in de article de afgerondDivje zelf*/
+.AfgerondDivje{
+    width: 50%;
+    height: 314px;
+    font-weight:bold;
+    overflow-y: hidden;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/*Styling voor de tekst in de div de huidigdivje zelf*/
+.HuidigDivje{
+    width: 50%;
+    height: 314px;
+    font-weight:bold;
+    overflow-y: hidden;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/*Styling voor de hobbys div*/
+.hobbys{
+    border: 1px solid #0F2C59;
+    border-radius: 33px;
+    padding: 20px;
+    font-size: 18px;
+    height: auto;
+    text-align: center;
+    word-break: break-word;
+    box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #EADBC8;
+    color: #0F2C59;
+}
+/*Styling voor hobbynaam*/
+.hobby{
+    margin-top: 15px;
+    font-weight:bold;
+}
+
+/*Styling voor de foto bij hobby*/
+.hobbyImg {
+    height: 50px;
+    margin: 0 0 0 15px;
+    position: relative;
+}
+/*Styling voor hobby zodat de tekst aan de linker kant komt te staan*/
+.hobbyWrap{
+    text-align: left;
+}
+
+/*Styling voor werkervaring div*/
+.werkErvaring{
+    border: 1px solid #0F2C59;
+    border-radius: 33px;
+    padding: 20px;
+    font-size: 18px;
+    height: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    overflow-y: scroll;
+    max-height: 386px;
+    box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #EADBC8;
+    color: #0F2C59;
+}
+
+/*Styling voor de GestoptDivje*/
+.GestoptDivje{
+    width: 50%;
+    height: auto;
+    font-weight:bold;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/*Styling voor de beschrijving van een hobby voor de breedte*/
+.beschrijving {
+    max-width: 451px;
+}
+
+/*Styling voor de pop up voor vakken*/
+.popup {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: none;
+}
+
+/*Styling voor de content van de pop up voor vakken*/
+.popup-content {
+    background-color: #EADBC8;
+    border-radius: 33px;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #0F2C59;
+    width: 30%;
+    font-weight: bolder;
+}
+
+/*Styling voor de button voor de pop up van vakken*/
+.popup-content button {
+    display: block;
+    margin: 0 auto;
+}
+.show {
+    display: block;
+}
+
+/*Styling voor de button van vakkenlijst*/
+#myButton{
+    background-color: #DAC0A3;
+    border: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    height: fit-content;
+
+}
+
+/*Styling voor de edit knoppen*/
+.edit {
+    background-color: #DAC0A3;
+    border: 0;
+    border-radius: 3%;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    float: right;
+    margin-top: -3%;
+    position: relative;
+}
+/*Styling voor de scroll functies*/
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #0F2C59;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/*Styling voor de grid-containers op de profielpagina dat ze responsive zijn*/
+@media(max-width: 1160px){
+    .grid-container-profiel{
+        display: flex;
+        flex-direction: column;
+
+    }
+}
+/*Styling voor de foto bij een hobby*/
+@media(max-width: 685px) {
+    .hobbyImg {
+        float:none;
+        margin: 0px;
+        margin-top: 15px;
+    }
+}
+
+
+
+/*profielaanmaken*/
+
+/*Styling voor de grid-containers op de profielaanmakenpagina dat ze responsive zijn*/
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 30px;
+    gap: 20px;
+    margin-top: 5%;
+    justify-content: center;
+    justify-items: center;
+}
+
+
+/*Styling voor alle datum velden*/
+input[type="date"] {
+    background-color: white;
+    border: solid black 5px;
+    border: 0;
+    padding: 10px 10px;
+    border-radius: 3%;
+}
+
+/*Styling voor alle nummer invoer velden*/
+input[type="number"] {
+    background-color: white;
+    border: solid black 5px;
+    border: 0;
+    padding: 10px 10px;
+    border-radius: 3%;
+}
+/*Styling voor de select opties*/
+select{
+    background-color: white;
+    border: solid black 5px;
+    border: 0;
+    padding: 10px 10px;
+    border-radius: 3%;
+}
+
+/*Styling voor de boxes die in de containers zitten zodat ze responsive zijn*/
+.box-pa {
+    background-color: #EADBC8;
+    padding: 50px;
+    width: 300px;
+    border-radius: 3%;
+    border: black solid 3px;
+    text-align: center;
+}
+
+/*Styling voor de grid-containers dat ze responsive zijn op de profielaanmakenpagina*/
+@media(max-width: 885px){
+    .grid-container{
+        display: inline-block;
+        margin-top: 50px;
+    }
+
+}
+
