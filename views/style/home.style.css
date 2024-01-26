@@ -1,20 +1,22 @@
 
-
+/*Font voor alle tekst die we aanduiden met de p tag*/
 p {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/*font voor alle links*/
 a {
     font-family: Arial, Helvetica, sans-serif;
     color: black;
     text-decoration: none;
 }
 
-
+/*font voor alle niet al te grote kopteksten*/
 h3 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/*Styling voor alle tekst invoer velden*/
 input[type="text"] {
     background-color: white;
     border: solid black 5px;
@@ -23,12 +25,15 @@ input[type="text"] {
     border-radius: 3%;
 }
 
+/*styling voor de container zodat het responsive is*/
 .grid-container {
     display: grid;
     grid-template-columns: auto auto;
     padding: 30px;
     gap: 20px;
 }
+
+/*styling voor de grote brede container zodat die responsive is*/
 .grid-container-groot{
     display: grid;
     grid-template-columns: auto;
@@ -36,6 +41,8 @@ input[type="text"] {
     gap: 20px;
     max-height: 400px;
 }
+
+/*Styling voor alle items in de containers*/
 .grid-item {
     border: 2px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
@@ -44,16 +51,19 @@ input[type="text"] {
     border-radius: 3px;
 }
 
+/*styling voor t logo*/
 .pfLogo {
     width: 50%;
 }
 
+/*Styling voor de tabel*/
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
+/*styling voor de rows in de tabel*/
 td, th {
     border: 1px solid #EADBC8;
     text-align: left;
@@ -64,6 +74,7 @@ tr:nth-child(even) {
     background-color: #EADBC8;
 }
 
+/*styling voor de footer op deze pagina*/
 .footer{
     position: fixed;
     left: 0;

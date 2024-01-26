@@ -61,7 +61,7 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="/views/style/accountedit.style.css">
+    <link rel="stylesheet" href="/views/style/style.css">
 </head>
 <body>
 <?php
@@ -72,8 +72,8 @@ require 'partials/footer.php';
 <main>
     <form method="post">
     <br/><br/><br/><br/>
-    <div id="container">
-    <section id='box'>
+    <div class="container">
+    <section class='box'>
         <h1>Account aanpassen</h1><hr><br>
 <!--        in deze input velden word van te voren alle gegevens uit de database laten zien zodat je kunt zien wat je aanpast en wat er al stond-->
         <input type='text' placeholder="voornaam" value="<?php echo isset($voornaam) ? $voornaam : ''; ?>" name='voornaam'><br><br>

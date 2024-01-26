@@ -7,7 +7,7 @@ session_start();
 
 <head>
     <title>ProfielPlus</title>
-    <link rel="stylesheet" href="../views/style/home.style.css">
+    <link rel="stylesheet" href="../views/style/style.css">
 </head>
 <body>
 <?php
@@ -23,7 +23,7 @@ $gebruikers = $stmt->fetchAll();
 ?>
 <main>
     <br/><br/><br/>
-<section class="grid-container">
+<section class="grid-container-home">
 
     <article class="grid-item">
         <h3>Welkom bij ProfielPlus</h3>
@@ -37,7 +37,7 @@ $gebruikers = $stmt->fetchAll();
     <section class="grid-container-groot">
 
     <article class="grid-item">
-        <p class="Hometitel">Wat is ProfielPlus?</p><br>
+        <h3>Wat is ProfielPlus?</h3>
             <p class="Hometext">ProfielPlus biedt een unieke en veilige manier om jouw persoonlijke informatie en interesses digitaal te bewaren
                 en te organiseren zonder dat anderen toegang hebben tot je gegevens.
                 Onze toepassing is speciaal ontworpen voor privacybewuste individuen die hun online aanwezigheid willen verbeteren,

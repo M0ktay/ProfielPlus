@@ -1,11 +1,14 @@
+/*font voor alle kopteksten*/
 h1 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/*font voor alle labels, oftewel kleine teksten die duidelijkheid bieden*/
 label {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/*Styling voor alle submit knoppen*/
 input[type="submit"] {
     background-color: #DAC0A3;
     border: 0;
@@ -14,6 +17,7 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+/*Styling voor alle tekst invoer velden*/
 input[type="text"] {
     background-color: white;
     border: solid black 5px;
@@ -22,6 +26,7 @@ input[type="text"] {
     border-radius: 3%;
 }
 
+/*Styling voor alle wachtwoord velden*/
 input[type="password"] {
     background-color: white;
     border: solid black 5px;
@@ -30,6 +35,7 @@ input[type="password"] {
     border-radius: 3%;
 }
 
+/*Styling voor alle email velden*/
 input[type="email"] {
     background-color: white;
     border: solid black 5px;
@@ -38,6 +44,7 @@ input[type="email"] {
     border-radius: 3%;
 }
 
+/*Styling voor alle containers*/
 #container {
     display: flex;
     justify-content: center;
@@ -45,6 +52,8 @@ input[type="email"] {
     height: 75vh;
     margin: 0;
 }
+
+/*Styling voor alle boxes die we gebruiken in de containers*/
 #box {
     background-color: #EADBC8;
     padding: 50px;
@@ -54,12 +63,9 @@ input[type="email"] {
     text-align: center;
 }
 
+/*Styling voor de footer op deze pagina zodat die fixed is*/
 .footer{
     position: fixed;
     left: 0;
     bottom: 0;
-}
-
-#checkboxText {
-    font-size: 15px;
 }

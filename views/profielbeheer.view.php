@@ -4,7 +4,7 @@ session_start();
 ?>
 <html lang="eng">
 <head>
-    <link rel="stylesheet" href="/views/style/profielaanmaken.style.css">
+    <link rel="stylesheet" href="/views/style/style.css">
 </head>
 <body>
 <?php
@@ -116,7 +116,7 @@ if(isset($_POST["vakSubmit"]) && $edit == "vak") {
 ?>
 <main>
     <article class="grid-container">
-    <section id="box">
+    <section class="box-pa">
         <h2>School</h2>
         <hr>
 <!--        Formulier voor school-->
@@ -173,7 +173,7 @@ if(isset($_POST["vakSubmit"]) && $edit == "vak") {
         </form>
     </section>
 
-    <section id="box">
+    <section class="box-pa">
         <h1>Hobby's</h1>
         <hr>
         <!--        Formulier voor hobby-->
@@ -199,7 +199,7 @@ if(isset($_POST["vakSubmit"]) && $edit == "vak") {
         </form>
     </section>
 
-    <section id="box">
+    <section class="box-pa">
         <h2>Werk</h2>
         <hr>
         <!--        Formulier voor werk-->
@@ -232,7 +232,7 @@ if(isset($_POST["vakSubmit"]) && $edit == "vak") {
         </form>
     </section>
 
-    <section id="box">
+    <section class="box-pa">
         <h2>Vak</h2>
         <hr>
         <!--        Formulier voor vakken-->
@@ -253,7 +253,7 @@ if(isset($_POST["vakSubmit"]) && $edit == "vak") {
             <!--            Als je school er niet tussenstaat dan kun je hem zelf toevoegen via deze link-->
             <a href="selecttoevoegen.php?toevoegen=Vak">Vak toevoegen</a>
             <br/><br/>
-            <input name="cijfer" type="number" step="0.01" inputmode="numeric" ><br/><br/>
+            <input name="cijfer" type="number" step="0.01" inputmode="numeric" placeholder="Cijfer"><br/><br/>
             <input type="submit" name="vakSubmit" value="Toepassen">
         </form>
     </section>

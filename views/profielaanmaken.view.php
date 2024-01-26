@@ -3,7 +3,7 @@ session_start();
 ?>
 <html lang="eng">
 <head>
-    <link rel="stylesheet" href="../views/style/profielaanmaken.style.css">
+    <link rel="stylesheet" href="../views/style/style.css">
 </head>
 <body>
 <?php
@@ -99,9 +99,9 @@ VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
 
 ?>
 <main>
- 
+
     <article class="grid-container">
-    <section id="box">
+    <section class="box-pa">
         <h2>School</h2>
         <hr>
         <form method="POST" href="../controllers/profielaanmaken.php">
@@ -142,7 +142,7 @@ VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
         </form>
     </section>
 
-    <section id="box">
+    <section class="box-pa">
         <h1>Hobby's</h1>
         <hr>
         <form method="POST" href="../controllers/profielaanmaken.php">
@@ -165,7 +165,7 @@ VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
         </form>
     </section>
 
-    <section id="box">
+    <section class="box-pa">
         <h2>Werk</h2>
         <hr>
         <form method="POST" href="../controllers/profielaanmaken.php">
@@ -195,7 +195,7 @@ VALUES('$gebruikers_id', '$schoolVak', '$cijfer');";
         </form>
     </section>
 
-    <section id="box">
+    <section class="box-pa">
         <h2>Vak</h2>
         <hr>
         <form method="POST" href="../controllers/profielaanmaken.php">

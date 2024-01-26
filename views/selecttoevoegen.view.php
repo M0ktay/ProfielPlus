@@ -56,12 +56,12 @@ if(isset($_POST["submit"])){
 ?>
 <html lang="eng">
 <head>
-    <link rel="stylesheet" href="/views/style/profielaanmaken.style.css">
+    <link rel="stylesheet" href="/views/style/style.css">
 </head>
 <body>
 <main>
     <br/><br/><br/><br/>
-    <section id="box">
+    <section class="box">
         <h2><?php echo $toevoegen; ?></h2>
         <hr>
 <!--        formulier voor het toevoegen in een gewendste tabel-->

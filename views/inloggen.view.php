@@ -33,7 +33,7 @@ if (isset($_POST["login"])) {
 
 <html>
 <head>
-    <link rel="stylesheet" href="/views/style/inloggen.style.css">
+    <link rel="stylesheet" href="/views/style/style.css">
 </head>
 <body>
 <?php
@@ -47,8 +47,8 @@ if (isset($_POST["login"])) {
 <!-- Dit is de form -->
     <form method="post">
     <br/><br/><br/><br/>
-    <container id="container">
-    <section id='box'>
+    <container class="container">
+    <section class='box'>
         <h1>Inloggen</h1><hr><br>
         <input type='text' placeholder="gebruikersnaam" required name='gebruikersnaam'><br><br>
         <input type='password' placeholder="wachtwoord" required name="wachtwoord"><br><br>

@@ -27,7 +27,7 @@
 </head>
 <body>    
     <footer class="footer">
-        ProfielPlus
+        <h3>ProfielPlus</h3>
     </footer>
 </body>
 </html>
